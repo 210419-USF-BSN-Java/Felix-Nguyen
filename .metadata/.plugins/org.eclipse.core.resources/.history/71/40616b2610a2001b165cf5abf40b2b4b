@@ -1,0 +1,30 @@
+
+public class NumToString {
+
+	public String string;
+	
+	public String printNumberInWord(int num)
+	{
+		if (num == 0)
+			string = "zero";
+		if (num == 1)
+			string = "one";
+		if (num == 2)
+			string = "two";
+		if (num == 3)
+			string = "three";
+		if (num == 4)
+			string = "four";
+		if (num == 5)
+			string = "five";
+		if (num == 6)
+			string = "six";
+		if (num == 7)
+			string = "seven";
+		if (num == 8)
+			string = "eight";
+		if (num == 9)
+			string = "nine";
+		return string;
+	}
+}

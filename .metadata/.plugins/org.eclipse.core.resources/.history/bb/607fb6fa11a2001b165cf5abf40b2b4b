@@ -1,0 +1,14 @@
+
+
+public class JavaAssignment {
+
+	public static void main(String[] args)
+	{
+		NumToString nts = new NumToString();
+		nts.printNumberInWord(0);
+		
+		ReverseString rs = new ReverseString();
+		rs.reverse("chickenmilk");
+	}
+	
+}

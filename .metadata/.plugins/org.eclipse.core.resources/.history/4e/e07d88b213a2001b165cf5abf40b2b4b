@@ -1,0 +1,21 @@
+
+public class ReverseString {
+
+	public char c[] = new char[20];
+	String stringResult = "";
+	
+	public String reverse(String string)
+	{
+		for(int i = 0; i < string.length(); i++)
+		{
+			c[i] = string.charAt(i);	
+		}
+		
+		for(int j = c.length; j > 0; j--)
+		{
+			stringResult = stringResult + c[j];
+					
+		}
+		return stringResult;
+	}
+}
