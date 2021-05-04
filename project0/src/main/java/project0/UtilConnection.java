@@ -8,7 +8,7 @@ public class UtilConnection {
 
 	private static Connection connection;
 	
-		public static Connection getConnectionFromEnv() throws SQLException
+		/*public static Connection getConnectionFromEnv() throws SQLException
 		{
 			
 			String url = "jdbc:postgresql://localhost:5432/postgres";
@@ -22,5 +22,20 @@ public class UtilConnection {
 			return connection;
 			//remember to add dependency into the pom 
 			//put
+		}*/
+		
+		public static Connection getConnectionFromEnv() throws SQLException
+		{
+
+			String url = System.getenv("DB_URL");
+			String username = System.getenv("DB_USER");
+			String password = System.getenv("DB_PASS");
+
+			if(connection == null || connection.isClosed()) {
+			connection = DriverManager.getConnection(url, username, password);
+			}
+			
+			return connection;
 		}
+		
 }

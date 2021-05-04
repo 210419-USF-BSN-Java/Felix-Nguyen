@@ -24,7 +24,7 @@ public class User implements Menuable, Serializable {
 	private boolean menuLoop = true;
 	Scanner sc = new Scanner(System.in);
 	ArrayList<User> _user = new ArrayList<>();
-	
+	UserPostgres up = new UserPostgres();
 	
 	public void Menu() {
 		
@@ -72,6 +72,8 @@ public class User implements Menuable, Serializable {
 	public void Login() {
 		Customer c = new Customer();
 		Employee e = new Employee();
+		int user_id = 0;
+		
 		System.out.println("Enter your username:");
 		this.username = sc.next() + sc.nextLine();
 		
@@ -82,7 +84,7 @@ public class User implements Menuable, Serializable {
 		
 		UserPostgres u = new UserPostgres();
 		String us = u.checkLogin(username, password).toString();
-		//System.out.println(us);
+	
 			
 		switch(us) {
 		case "customer":
@@ -96,23 +98,15 @@ public class User implements Menuable, Serializable {
 				Login();
 				break;
 		}
+		
+
+
 	}
-//		if(us.equals("customer")) {
-//			System.out.println("customer");
-//			//Customer.Menu();
-//		}
-//		
-//		if(us.equals("employee")) {
-//				System.out.println("EMP");
-//				//Employee.Menu();
-//		}
-//		else System.out.println("Username/Password is invalid");
-//			Login();
-//	}
+
 	
 	public void enterInfo() {
 		
-		System.out.println("Enter your userID");
+		System.out.println("Enter your username");
 		
 		this.username = sc.nextLine() + sc.next();
 			while(this.username.isBlank())
@@ -136,7 +130,7 @@ public class User implements Menuable, Serializable {
 		
 		UserPostgres up = new UserPostgres();
 		up.add(new User(id, usertype, username, pw));
-		
+		 
 	}
 	
 	public void printUsers() {

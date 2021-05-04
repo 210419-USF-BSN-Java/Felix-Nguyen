@@ -1,6 +1,8 @@
 package project0;
 
-public class Shop {
+import java.io.Serializable;
+
+public class Shop implements Serializable{
 	
 	private int itemID;
 	private String item = "";
@@ -47,6 +49,55 @@ public class Shop {
 	}
 	public void setItemOffer(int itemOffer) {
 		this.itemOffer = itemOffer;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((item == null) ? 0 : item.hashCode());
+		result = prime * result + itemID;
+		result = prime * result + itemOffer;
+		result = prime * result + ((itemOwned == null) ? 0 : itemOwned.hashCode());
+		result = prime * result + ((itemStatus == null) ? 0 : itemStatus.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Shop other = (Shop) obj;
+		if (item == null) {
+			if (other.item != null)
+				return false;
+		} else if (!item.equals(other.item))
+			return false;
+		if (itemID != other.itemID)
+			return false;
+		if (itemOffer != other.itemOffer)
+			return false;
+		if (itemOwned == null) {
+			if (other.itemOwned != null)
+				return false;
+		} else if (!itemOwned.equals(other.itemOwned))
+			return false;
+		if (itemStatus == null) {
+			if (other.itemStatus != null)
+				return false;
+		} else if (!itemStatus.equals(other.itemStatus))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Shop [itemID=" + itemID + ", item=" + item + ", itemStatus=" + itemStatus + ", itemOwned=" + itemOwned
+				+ ", itemOffer=" + itemOffer + "]";
 	}
 
 	

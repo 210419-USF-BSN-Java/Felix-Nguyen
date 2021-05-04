@@ -43,6 +43,7 @@ public class Employee extends User implements Menuable{
 				Menu();
 				break;
 			case 4:
+				viewOffers();
 				break;
 			case 5:
 				System.out.println("Bye!");
@@ -62,7 +63,7 @@ public class Employee extends User implements Menuable{
 		ShopPostgres sp = new ShopPostgres();
 		System.out.println("Enter the name of your item for sale");
 		String item = sc.next() + sc.nextLine();
-		sp.add(new Shop((int)(Math.random()*999999999), item, "selling", false, 0));
+		sp.add(new Shop((int)(Math.random()*9999), item, "selling", false, 0));
 		System.out.println(item + " has been added!");
 		System.out.println("");
 		
@@ -85,35 +86,40 @@ public class Employee extends User implements Menuable{
 	public void acceptReject() {
 		int offerNumber = -1;
 			OffersPostgres op = new OffersPostgres();
+			ShopPostgres sp = new ShopPostgres();
 			
 			System.out.println("Enter an offer # to accept/reject");	
 			offerNumber = sc.nextInt();
 			
 			System.out.println("Enter A to Accept or R to Reject");
 			String in = sc.next();
-			in.toUpperCase();
+			System.out.println(in);
+			//in.toUpperCase();
+			
 			switch(in) {
 				case "A": 
 					op.acceptOffer(op.viewOffers().get(offerNumber).getOfferID());
 					op.updateOffers(op.viewOffers().get(offerNumber).getItemID());
-						/*try {
-							op.updateOffers(op.viewOffers().get(offerNumber).getItemID());
-						}
-				
-				catch(Exception e) {
-					System.out.println("Could not find any other pending offers to delete!");
-				}*/
+					sp.updateOwnedItems(op.viewOffers().get(offerNumber).getUserID(),
+							op.viewOffers().get(offerNumber).getItemID());
+					
 					break;
-				case "R": op.rejectOffer(op.viewOffers().get(offerNumber).getOfferID());
-					System.out.println("Invalid character entered! ");
+				case "a":	
+					op.acceptOffer(op.viewOffers().get(offerNumber).getOfferID());
+					op.updateOffers(op.viewOffers().get(offerNumber).getItemID());
+					sp.updateOwnedItems(op.viewOffers().get(offerNumber).getUserID(),
+							op.viewOffers().get(offerNumber).getItemID());
 					break;
-						default:
-							break;
-			
-			}
-		
+				case "R": 
+					op.rejectOffer(op.viewOffers().get(offerNumber).getOfferID());					
+					break;
+				case "r": 
+					op.rejectOffer(op.viewOffers().get(offerNumber).getOfferID());					
+					break;
+						default: System.out.println("Invalid character entered! ");
+							break;			
+			}	
 	}
-	
 	
 	
 	public void viewOffers() {

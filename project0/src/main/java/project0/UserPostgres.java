@@ -4,10 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.Scanner;
 
 public class UserPostgres implements UserDao<User> {
 	
+	Scanner sc = new Scanner(System.in);
 	public String checkLogin(String username, String pw) {
 		
 		String usertype = "";
@@ -64,6 +65,36 @@ public class UserPostgres implements UserDao<User> {
 				e.printStackTrace();
 			}
 			return user;
+	}
+	
+	public int getUserID()
+	{
+		int id = 0;
+		String sql = "Select user_id from users where user_loginname = ? and user_loginpass = ?";
+
+		String[] keys = {"user_id"};
+		
+		try(Connection con = UtilConnection.getConnectionFromEnv()){
+			PreparedStatement ps = con.prepareStatement(sql);
+			System.out.println("Enter username");
+			String username = sc.next() + sc.nextLine();
+			System.out.println("Enter password");
+			String password = sc.next() + sc.nextLine();
+			ps.setString(1, username);
+			ps.setString(2, password);
+			
+			ResultSet rs = ps.executeQuery();
+
+			if(rs.next()) {
+				id = rs.getInt("user_id");
+		
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return id;
 	}
 
 	@Override

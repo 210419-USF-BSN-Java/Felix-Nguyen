@@ -1,15 +1,22 @@
 package project0;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 public class Customer extends User implements Menuable{
 	
-	private String userID = "";
-	private String password = "";
-	private boolean menuLoop = true;
+//	private String userID = "";
+//	private String password = "";
+//	private boolean menuLoop = true;
 	Scanner sc = new Scanner(System.in);
-
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+	LocalDateTime now = LocalDateTime.now(); 
+	OffersPostgres op = new OffersPostgres();
+	ShopPostgres sp = new ShopPostgres();
+	
 	public void Menu() {
 		
 		int condition = 0;
@@ -40,8 +47,10 @@ public class Customer extends User implements Menuable{
 					viewList();
 					break;
 				case 3: 
+					viewOwnedItems();
 					break;
 				case 4:
+					viewOtherOffers();
 					break;
 				case 5:
 					System.out.println("Bye!");
@@ -54,7 +63,7 @@ public class Customer extends User implements Menuable{
 		while(condition != 5);
 	}
 	
-	public void Login() {
+	/*public String Login() {
 			
 		System.out.println("Enter your userID:");
 		this.userID = sc.next() + sc.nextLine();
@@ -63,19 +72,21 @@ public class Customer extends User implements Menuable{
 		this.password = sc.next()+ sc.nextLine();
 
 		menuLoop = false;
-	}
 		
-	public void createAcc() {
+		return this.userID;
+	}*/
 		
-		System.out.println("Enter your userID");
-		this.userID = sc.nextLine();
-		System.out.println("Enter your password");
-		this.password = sc.nextLine();
-		menuLoop = false;
-			
-	}
+//	public void createAcc() {
+//		
+//		System.out.println("Enter your userID");
+//		this.userID = sc.nextLine();
+//		System.out.println("Enter your password");
+//		this.password = sc.nextLine();
+//		menuLoop = false;
+//			
+//	}
 	
-	public void viewList() {
+	public List<String> viewList() {
 		ShopPostgres sp = new ShopPostgres();
 		
 		Iterator it = sp.viewItems().iterator();
@@ -83,21 +94,37 @@ public class Customer extends User implements Menuable{
 			Object o = it.next();
 			System.out.println(o);
 		}
+		return sp.viewItems();
 	}
-	public void makeOffer() {
-		//input item id to buy need to add to view list
+	public Integer makeOffer() {
+	
 		System.out.println("Enter the item ID");
 		int itemID = sc.nextInt();
 		
-		System.out.println("Confirm with the item name");
+		System.out.println("Enter the item name");
 		String name = sc.next() + sc.nextLine();
 		
 		System.out.println("Enter the offer price");
-		int offer = sc.nextInt();
+		double offer = sc.nextDouble();
 		
 		OffersPostgres op = new OffersPostgres();
-		op.addOffer((int)(Math.random() * 999999999), itemID, name, offer, getUserID(), "pending");
+		int rows = op.addOffer((int)(Math.random() * 9999), itemID, name, offer, up.getUserID(), "pending");
 		System.out.println("Offer Added!");
+		
+		return rows;
+	}
+	
+	public List<String> viewOwnedItems() {
+		return sp.viewOwnedItems(up.getUserID());
+	}
+	
+	public List<Offers> viewOtherOffers() {
+		Iterator it = op.viewOffersForItem().iterator();
+		while(it.hasNext()) {
+			Object o = it.next();
+			System.out.println(o);
+		}
+		return op.viewOffersForItem();
 	}
 
 }

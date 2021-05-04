@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ShopPostgres{
@@ -69,7 +70,7 @@ public class ShopPostgres{
 					ResultSet rs = ps.executeQuery();
 					
 					while(rs.next()) {
-						items.add(rs.getString("item_name"));
+						items.add("Item ID: " + rs.getInt("item_id") +" " + rs.getString("item_name"));
 					}
 				}
 					catch (SQLException e) {
@@ -100,4 +101,58 @@ public class ShopPostgres{
 
 		return rs;
 	}
+	
+	public void updateOwnedItems(int user_id, int item_id) {
+		String sql = "Update shop set item_owned = ?, user_id = ? where item_id = ?";
+		
+		int rs = 0;
+		try (Connection c = UtilConnection.getConnectionFromEnv()){
+			
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setBoolean(1, true);
+			ps.setInt(2, user_id);
+			ps.setInt(3, item_id);
+		
+			rs = ps.executeUpdate();
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+
+	}
+	
+	
+	public List<String> viewOwnedItems(int id) {
+		String sql = "Select item_name from shop where user_id = ? and item_owned = ?";
+		List<String> items = new ArrayList<>();
+		try (Connection c = UtilConnection.getConnectionFromEnv()){
+			
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setInt(1, id);
+			ps.setBoolean(2, true);
+		
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				items.add(rs.getString("item_name"));
+			}
+			
+			Iterator it = items.iterator();
+			while(it.hasNext()) {
+				Object o = it.next();
+				System.out.println(o);
+			}
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return items;
+	}
+
 }
+	
+
+
