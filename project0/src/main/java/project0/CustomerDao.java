@@ -1,7 +1,5 @@
 package project0;
 
-import java.util.List;
-
 public interface CustomerDao<T> {
 
 		public T makeOffer();

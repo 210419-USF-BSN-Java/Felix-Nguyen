@@ -178,3 +178,47 @@
 {ERROR} -  [project0.ShopPostgres]   -     Error sending/receiving data to the database     May-05-21 Wednesday PDT 02:03:54
 {ERROR} -  [project0.ShopPostgres]   -                           May-05-21 Wednesday PDT 02:03:54
 {INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 148     May-05-21 Wednesday PDT 02:07:12
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 02:37:34
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 02:37:34
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.User]   -                           May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a double!     May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a double!     May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:05
+{INFO} -  [project0.Customer]   -     Non integer input during customer menu!     May-05-21 Wednesday PDT 03:10:05
+{INFO} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.User]   -                           May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.User]   -                           May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a int!     May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:05
+{INFO} -  [project0.Customer]   -     Non integer input during customer menu!     May-05-21 Wednesday PDT 03:10:05
+{INFO} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a double!     May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a double!     May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a double!     May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a double!     May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a double!     May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a double!     May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a double!     May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:05
+{INFO} -  [project0.Customer]   -     Non integer input during customer menu!     May-05-21 Wednesday PDT 03:10:05
+{INFO} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:05
+{INFO} -  [project0.Customer]   -     Non integer input during customer menu!     May-05-21 Wednesday PDT 03:10:05
+{INFO} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:05
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-05-21 Wednesday PDT 03:10:06
+{ERROR} -  [project0.User]   -                           May-05-21 Wednesday PDT 03:10:06
+{INFO} -  [project0.Customer]   -     Non integer input during customer menu!     May-05-21 Wednesday PDT 03:10:06
+{INFO} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:06
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a int!     May-05-21 Wednesday PDT 03:10:06
+{ERROR} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:06
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-05-21 Wednesday PDT 03:10:06
+{ERROR} -  [project0.User]   -                           May-05-21 Wednesday PDT 03:10:06
