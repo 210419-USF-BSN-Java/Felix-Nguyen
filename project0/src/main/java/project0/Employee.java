@@ -124,27 +124,21 @@ public class Employee extends User implements Menuable{
 				switch(in) {
 					case "A": 
 						int acceptedRows = op.acceptOffer(op.viewOffers().get(offerNumber).getOfferID());
-						try {op.updateOffers(op.viewOffers().get(offerNumber).getItemID());
-						
+						op.updateOffers(op.viewOffers().get(offerNumber).getItemID());						
 						sp.updateOwnedItems(op.viewOffers().get(offerNumber).getUserID(),
-								op.viewOffers().get(offerNumber).getItemID());	
-						}
-						catch(Exception ex) {
-							logE("Update incomplete");
-						}
+								op.viewOffers().get(offerNumber).getItemID());										
+				
 						rows = acceptedRows;
 						Menu();
 						break;
 					case "a":	
 						acceptedRows = op.acceptOffer(op.viewOffers().get(offerNumber).getOfferID());
-						try {op.updateOffers(op.viewOffers().get(offerNumber).getItemID());
+						op.updateOffers(op.viewOffers().get(offerNumber).getItemID());
 						
 							sp.updateOwnedItems(op.viewOffers().get(offerNumber).getUserID(),
 									op.viewOffers().get(offerNumber).getItemID());	
-							}
-							catch(Exception ex) {
-								logE("Update incomplete");
-							}
+							
+		
 						rows = acceptedRows;
 						Menu();
 						break;

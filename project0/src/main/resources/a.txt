@@ -222,3 +222,36 @@
 {ERROR} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 03:10:06
 {ERROR} -  [project0.User]   -     Invalid input during user menu     May-05-21 Wednesday PDT 03:10:06
 {ERROR} -  [project0.User]   -                           May-05-21 Wednesday PDT 03:10:06
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 07:20:57
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 07:20:57
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-05-21 Wednesday PDT 07:21:07
+{ERROR} -  [project0.User]   -                           May-05-21 Wednesday PDT 07:21:07
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-05-21 Wednesday PDT 07:34:48
+{ERROR} -  [project0.User]   -                           May-05-21 Wednesday PDT 07:34:48
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 09:08:04
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 09:08:04
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 105     May-05-21 Wednesday PDT 09:08:16
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 105     May-05-21 Wednesday PDT 09:08:28
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 09:08:37
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 09:08:37
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 09:08:49
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 09:08:49
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 09:10:21
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 09:10:21
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 105     May-05-21 Wednesday PDT 09:10:31
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 09:10:42
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 09:10:42
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 105     May-05-21 Wednesday PDT 09:10:47
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 110     May-05-21 Wednesday PDT 09:11:18
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 09:16:52
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 09:16:52
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-05-21 Wednesday PDT 09:17:39
+{ERROR} -  [project0.User]   -                           May-05-21 Wednesday PDT 09:17:39
+{ERROR} -  [project0.User]   -     Invalid login input     May-05-21 Wednesday PDT 09:18:10
+{ERROR} -  [project0.User]   -                           May-05-21 Wednesday PDT 09:18:10
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 110     May-05-21 Wednesday PDT 09:18:16
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 110     May-05-21 Wednesday PDT 09:19:07
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 09:26:54
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 09:26:54
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 110     May-05-21 Wednesday PDT 09:27:19
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 206     May-05-21 Wednesday PDT 09:27:41

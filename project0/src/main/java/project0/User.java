@@ -34,7 +34,7 @@ public class User implements Menuable, Serializable {
 		
 		int condition = 0;
 		UserPostgres u = new UserPostgres();
-		
+		System.out.println("************ Welcome to Milk-Mart ************");
 		System.out.println("User options:");
 		System.out.println("Enter a number to continue:");
 		System.out.println("1 : Login");
