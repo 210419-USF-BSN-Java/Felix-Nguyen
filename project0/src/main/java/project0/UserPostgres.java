@@ -6,11 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 public class UserPostgres implements UserDao<User> {
 	
-	Scanner sc = new Scanner(System.in);
+	private static Scanner sc = new Scanner(System.in);
+	private static Logger l = Logger.getLogger(UserPostgres.class.getName());
+	
 	public String checkLogin(String username, String pw) {
-		
+	
 		String usertype = "";
 		String[] keys = {"user_id"};		
 		String sql = "select * from users where user_loginname =  ? and user_loginpass = ?";
@@ -21,8 +25,6 @@ public class UserPostgres implements UserDao<User> {
 			ps.setString(2, pw);
 				
 			ResultSet rs = ps.executeQuery();
-			//System.out.println(rs);
-			
 			
 			if(rs.next()) {
 				usertype = rs.getString("user_type");
@@ -30,8 +32,7 @@ public class UserPostgres implements UserDao<User> {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logE("Error sending/receiving data to the database");
 		}
 		
 		return usertype;
@@ -61,8 +62,7 @@ public class UserPostgres implements UserDao<User> {
 				}
 				
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logE("Error sending/receiving data to the database");
 			}
 			return user;
 	}
@@ -91,10 +91,30 @@ public class UserPostgres implements UserDao<User> {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logE("Error sending/receiving data to the database");
 		}
 		return id;
+	}
+	
+	public String checkExistingUser(String username) {
+		String sql = "Select user_loginname from users where user_loginname = ?";
+		String row = "";
+		//String[] keys = {"user_id"};
+		
+		try(Connection con = UtilConnection.getConnectionFromEnv()){
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, username);
+			
+			ResultSet rs = ps.executeQuery();
+
+			if(rs.next()) {
+				 row = rs.getString("user_loginname");		
+			}
+			
+		} catch (SQLException e) {
+			logE("Error sending/receiving data to the database");
+		}
+		return row;
 	}
 
 	@Override
@@ -109,6 +129,16 @@ public class UserPostgres implements UserDao<User> {
 		return null;
 	}
 	
+	
+	public void logI(String s) { // outputs string 's' with new line
+		l.info(s);
+		l.info("                 ");
+	}
+	
+	public void logE(String s) { // outputs string 's' with new line
+		l.error(s);
+		l.error("                 ");
+	}
 	 
 	
 }

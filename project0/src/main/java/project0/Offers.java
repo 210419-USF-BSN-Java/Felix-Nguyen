@@ -18,8 +18,7 @@ public class Offers implements Serializable{
 	public Offers(int offer_id, int itemId, String itemName,int item_offer) {
 		
 	}
-	
-	
+
 	public Offers() {}
 	
 	private int offerID;

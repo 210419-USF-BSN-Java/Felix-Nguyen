@@ -4,8 +4,9 @@ import java.util.List;
 
 public interface CustomerDao<T> {
 
-		public T add(T t);
-		public Integer update(T t);
-		public Integer delete(T t);
+		public T makeOffer();
+		public T viewList();
+		public T viewOwnedItems();
+		public T viewOtherOffers();
 	
 }

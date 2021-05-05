@@ -8,7 +8,7 @@ public class UtilConnection {
 
 	private static Connection connection;
 	
-		/*public static Connection getConnectionFromEnv() throws SQLException
+		/*public static Connection getHardCodedConn() throws SQLException
 		{
 			
 			String url = "jdbc:postgresql://localhost:5432/postgres";

@@ -8,9 +8,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 public class ShopPostgres{
 
-
+	private static Logger l = Logger.getLogger(ShopPostgres.class.getName());
+	
 	public Shop add(Shop t) {
 		
 		Shop shop = null;
@@ -35,8 +38,7 @@ public class ShopPostgres{
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logE("Error sending/receiving data to the database");
 		}
 		return shop;
 	}
@@ -54,8 +56,7 @@ public class ShopPostgres{
 			result = ps.executeUpdate();
 		}
 			catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logE("Error sending/receiving data to the database");
 			}
 		return result;
 	}
@@ -74,8 +75,7 @@ public class ShopPostgres{
 					}
 				}
 					catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						logE("Error sending/receiving data to the database");
 					}				
 		return items;
 		
@@ -102,7 +102,7 @@ public class ShopPostgres{
 		return rs;
 	}
 	
-	public void updateOwnedItems(int user_id, int item_id) {
+	public Integer updateOwnedItems(int user_id, int item_id) {
 		String sql = "Update shop set item_owned = ?, user_id = ? where item_id = ?";
 		
 		int rs = 0;
@@ -117,10 +117,10 @@ public class ShopPostgres{
 
 		}
 		catch (SQLException e) {
-			e.printStackTrace();
+			logE("Error sending/receiving data to the database");
 		}
 
-
+		return rs;
 	}
 	
 	
@@ -146,10 +146,20 @@ public class ShopPostgres{
 
 		}
 		catch (SQLException e) {
-			e.printStackTrace();
+			logE("Error sending/receiving data to the database");
 		}
 		
 		return items;
+	}
+	
+	public void logI(String s) { // outputs string 's' with new line
+		l.info(s);
+		l.info("                 ");
+	}
+	
+	public void logE(String s) { // outputs string 's' with new line
+		l.error(s);
+		l.error("                 ");
 	}
 
 }

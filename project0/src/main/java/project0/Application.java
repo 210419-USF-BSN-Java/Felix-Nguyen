@@ -1,13 +1,15 @@
 package project0;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
 
 public class Application {
 
 	public static void main(String[] args) {
+		BasicConfigurator.configure();
+		Logger l = Logger.getLogger(Application.class);
 		
+
 //		User user = new User(1234, "employee", "username", "password");
 //		UserPostgres up = new UserPostgres();
 //		System.out.println(up.checkLogin("asdf", "alrighty"));
@@ -15,8 +17,10 @@ public class Application {
 		
 		
 		User user = new User();
+		l.info("Begin Application");
+		l.info("                 ");
 		user.Menu();
-//		System.out.println((int)(Math.random()*999999));
+
 		
 //		Employee e = new Employee();
 //		e.acceptReject();
@@ -37,6 +41,7 @@ public class Application {
 		//c.viewList();
 //		
 //		OffersPostgres op = new OffersPostgres();
+	
 //		op.acceptOffer(83, "African polecat");
 		//op.rejectOffer(10, "Flightless cormorant");
 //		op.rejectOffer(46, "Puku");

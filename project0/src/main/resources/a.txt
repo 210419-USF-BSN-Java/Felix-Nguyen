@@ -1,0 +1,180 @@
+{INFO} -  [project0.Application]   -     messsaaage to log     May-04-21 Tuesday PDT 19:44:29
+{INFO} -  [project0.Application]   -     messsaaage to log     May-04-21 Tuesday PDT 19:44:59
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 19:52:05
+{INFO} -  [project0.Application]   -          May-04-21 Tuesday PDT 19:52:05
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 19:54:02
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 19:54:02
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 21:07:58
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 21:07:58
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 21:16:14
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 21:16:14
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 21:16:35
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 21:16:35
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 21:17:28
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 21:17:28
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 21:17:32
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 21:17:32
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-04-21 Tuesday PDT 21:17:38
+{ERROR} -  [project0.User]   -                           May-04-21 Tuesday PDT 21:17:38
+{INFO} -  [project0.Customer]   -     Non integer input during customer menu!     May-04-21 Tuesday PDT 21:19:48
+{INFO} -  [project0.Customer]   -                           May-04-21 Tuesday PDT 21:19:48
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a int!     May-04-21 Tuesday PDT 21:20:09
+{ERROR} -  [project0.Customer]   -                           May-04-21 Tuesday PDT 21:20:09
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a double!     May-04-21 Tuesday PDT 21:26:40
+{ERROR} -  [project0.Customer]   -                           May-04-21 Tuesday PDT 21:26:40
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 21:26:42
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 21:26:42
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a int!     May-04-21 Tuesday PDT 21:26:55
+{ERROR} -  [project0.Customer]   -                           May-04-21 Tuesday PDT 21:26:55
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 21:27:19
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 21:27:19
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a int!     May-04-21 Tuesday PDT 21:27:36
+{ERROR} -  [project0.Customer]   -                           May-04-21 Tuesday PDT 21:27:36
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 21:28:37
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 21:28:37
+{INFO} -  [project0.Customer]   -     Non integer input during customer menu!     May-04-21 Tuesday PDT 21:28:50
+{INFO} -  [project0.Customer]   -                           May-04-21 Tuesday PDT 21:28:50
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 21:36:46
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 21:36:46
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a int!     May-04-21 Tuesday PDT 21:38:12
+{ERROR} -  [project0.Customer]   -                           May-04-21 Tuesday PDT 21:38:12
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 21:41:30
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 21:41:30
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 21:46:39
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 21:46:39
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-04-21 Tuesday PDT 21:46:43
+{ERROR} -  [project0.User]   -                           May-04-21 Tuesday PDT 21:46:43
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-04-21 Tuesday PDT 21:47:39
+{ERROR} -  [project0.User]   -                           May-04-21 Tuesday PDT 21:47:39
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 21:47:41
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 21:47:41
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-04-21 Tuesday PDT 21:47:43
+{ERROR} -  [project0.User]   -                           May-04-21 Tuesday PDT 21:47:43
+{ERROR} -  [project0.User]   -     Invalid login input     May-04-21 Tuesday PDT 21:49:18
+{ERROR} -  [project0.User]   -                           May-04-21 Tuesday PDT 21:49:18
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 21:50:57
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 21:50:57
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 21:52:02
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 21:52:02
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-04-21 Tuesday PDT 21:54:38
+{ERROR} -  [project0.User]   -                           May-04-21 Tuesday PDT 21:54:38
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 21:54:41
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 21:54:41
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 21:57:34
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 21:57:34
+{ERROR} -  [project0.User]   -     Invalid login input     May-04-21 Tuesday PDT 21:57:58
+{ERROR} -  [project0.User]   -                           May-04-21 Tuesday PDT 21:57:58
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 22:09:14
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 22:09:14
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 22:24:43
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 22:24:43
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a int!     May-04-21 Tuesday PDT 22:25:03
+{ERROR} -  [project0.Customer]   -                           May-04-21 Tuesday PDT 22:25:03
+{ERROR} -  [project0.OffersPostgres]   -     Error sending/receiving data to the database     May-04-21 Tuesday PDT 22:25:32
+{ERROR} -  [project0.OffersPostgres]   -                           May-04-21 Tuesday PDT 22:25:32
+{ERROR} -  [project0.OffersPostgres]   -     Error sending/receiving data to the database     May-04-21 Tuesday PDT 22:26:34
+{ERROR} -  [project0.OffersPostgres]   -                           May-04-21 Tuesday PDT 22:26:34
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 22:39:41
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 22:39:41
+{ERROR} -  [project0.OffersPostgres]   -     Error sending/receiving data to the database     May-04-21 Tuesday PDT 22:40:25
+{ERROR} -  [project0.OffersPostgres]   -                           May-04-21 Tuesday PDT 22:40:25
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 22:43:57
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 22:43:57
+{ERROR} -  [project0.OffersPostgres]   -     Error sending/receiving data to the database     May-04-21 Tuesday PDT 22:44:08
+{ERROR} -  [project0.OffersPostgres]   -                           May-04-21 Tuesday PDT 22:44:08
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 22:46:02
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 22:46:02
+{ERROR} -  [project0.OffersPostgres]   -     Error sending/receiving data to the database     May-04-21 Tuesday PDT 22:46:08
+{ERROR} -  [project0.OffersPostgres]   -                           May-04-21 Tuesday PDT 22:46:08
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 22:46:57
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 22:46:57
+{ERROR} -  [project0.OffersPostgres]   -     Error sending/receiving data to the database     May-04-21 Tuesday PDT 22:47:04
+{ERROR} -  [project0.OffersPostgres]   -                           May-04-21 Tuesday PDT 22:47:04
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 22:48:03
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 22:48:03
+{ERROR} -  [project0.OffersPostgres]   -     Error sending/receiving data to the database     May-04-21 Tuesday PDT 22:48:11
+{ERROR} -  [project0.OffersPostgres]   -                           May-04-21 Tuesday PDT 22:48:11
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 22:49:43
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 22:49:43
+{ERROR} -  [project0.OffersPostgres]   -     Error sending/receiving data to the database     May-04-21 Tuesday PDT 22:49:50
+{ERROR} -  [project0.OffersPostgres]   -                           May-04-21 Tuesday PDT 22:49:50
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 22:51:29
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 22:51:29
+{ERROR} -  [project0.OffersPostgres]   -     Error sending/receiving data to the database     May-04-21 Tuesday PDT 22:51:39
+{ERROR} -  [project0.OffersPostgres]   -                           May-04-21 Tuesday PDT 22:51:39
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 22:54:54
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 22:54:54
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 22:55:51
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 22:55:51
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 22:58:26
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 22:58:26
+{ERROR} -  [project0.User]   -     Invalid login input     May-04-21 Tuesday PDT 22:58:33
+{ERROR} -  [project0.User]   -                           May-04-21 Tuesday PDT 22:58:33
+{ERROR} -  [project0.Customer]   -     Item ID not found!     May-04-21 Tuesday PDT 22:59:19
+{ERROR} -  [project0.Customer]   -                           May-04-21 Tuesday PDT 22:59:19
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 23:00:57
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 23:00:57
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 23:08:25
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 23:08:25
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 23:09:50
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 23:09:50
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-04-21 Tuesday PDT 23:09:52
+{ERROR} -  [project0.User]   -                           May-04-21 Tuesday PDT 23:09:52
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 23:10:20
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 23:10:20
+{ERROR} -  [project0.Employee]   -     Update incomplete     May-04-21 Tuesday PDT 23:11:40
+{ERROR} -  [project0.Employee]   -                           May-04-21 Tuesday PDT 23:11:40
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 23:15:25
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 23:15:25
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 23:20:56
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 23:20:56
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 23:22:54
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 23:22:54
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 23:26:32
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 23:26:32
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-04-21 Tuesday PDT 23:26:34
+{ERROR} -  [project0.User]   -                           May-04-21 Tuesday PDT 23:26:34
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 23:34:32
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 23:34:32
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 23:42:07
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 23:42:07
+{INFO} -  [project0.Application]   -     Begin Application     May-04-21 Tuesday PDT 23:49:48
+{INFO} -  [project0.Application]   -                           May-04-21 Tuesday PDT 23:49:48
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 00:35:25
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 00:35:25
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 97     May-05-21 Wednesday PDT 00:35:34
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 01:03:35
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 01:03:35
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-05-21 Wednesday PDT 01:03:43
+{ERROR} -  [project0.User]   -                           May-05-21 Wednesday PDT 01:03:43
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 01:04:20
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 01:04:20
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 01:05:25
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 01:05:25
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 01:05:55
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 01:05:55
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-05-21 Wednesday PDT 01:06:41
+{ERROR} -  [project0.User]   -                           May-05-21 Wednesday PDT 01:06:41
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 01:08:17
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 01:08:17
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 01:10:10
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 01:10:10
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 97     May-05-21 Wednesday PDT 01:10:37
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 97     May-05-21 Wednesday PDT 01:10:51
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 97     May-05-21 Wednesday PDT 01:10:58
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 97     May-05-21 Wednesday PDT 01:11:14
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 01:11:22
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 01:11:22
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 01:12:22
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 01:12:22
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 97     May-05-21 Wednesday PDT 01:12:35
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 102     May-05-21 Wednesday PDT 01:13:07
+{INFO} -  [project0.Application]   -     Begin Application     May-05-21 Wednesday PDT 01:13:54
+{INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 01:13:54
+{ERROR} -  [project0.Customer]   -     Item ID not found!     May-05-21 Wednesday PDT 01:23:40
+{ERROR} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 01:23:40
+{ERROR} -  [project0.Customer]   -     When making an offer: Not a double!     May-05-21 Wednesday PDT 01:23:51
+{ERROR} -  [project0.Customer]   -                           May-05-21 Wednesday PDT 01:23:51
+{ERROR} -  [project0.ShopPostgres]   -     Error sending/receiving data to the database     May-05-21 Wednesday PDT 02:03:54
+{ERROR} -  [project0.ShopPostgres]   -                           May-05-21 Wednesday PDT 02:03:54
+{INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 148     May-05-21 Wednesday PDT 02:07:12

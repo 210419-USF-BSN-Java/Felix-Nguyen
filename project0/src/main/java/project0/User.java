@@ -2,19 +2,23 @@ package project0;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.stream.Stream;
+
+import org.apache.log4j.Logger;
+
+import project0.Customer;
 
 public class User implements Menuable, Serializable {
 
-	User(int id, String type, String username, String pw){
+	public User(int id, String type, String username, String pw){
 		this.userID = id;
 		this.usertype = type;
 		this.username = username;
 		this.password =  pw;
 	};
 	
-	User(){};
+	public User(){};
 	
 	private static int userID;
 	private String usertype;
@@ -25,7 +29,7 @@ public class User implements Menuable, Serializable {
 	Scanner sc = new Scanner(System.in);
 	ArrayList<User> _user = new ArrayList<>();
 	UserPostgres up = new UserPostgres();
-	
+	private static Logger l = Logger.getLogger(User.class.getName());
 	public void Menu() {
 		
 		int condition = 0;
@@ -44,6 +48,7 @@ public class User implements Menuable, Serializable {
 				condition = sc.nextInt();
 			}
 			catch(Exception e) {
+				logE("Invalid input during user menu");
 				@SuppressWarnings("unused")
 				String garbageCollect = sc.nextLine();			
 			}
@@ -59,24 +64,23 @@ public class User implements Menuable, Serializable {
 				case 3: System.out.println("Bye!");
 					System.exit(0);
 					default:
-						System.out.println("Invalid input");
 						System.out.println("Please enter a value between 1 - 3!");
 						break;
 			}			
 		}
 		
-		while(menuLoop);
+		while(condition != 3);
 		
 	}
 
-	public void Login() {
+	public String Login() {
 		Customer c = new Customer();
 		Employee e = new Employee();
 		int user_id = 0;
 		
 		System.out.println("Enter your username:");
 		this.username = sc.next() + sc.nextLine();
-		
+				
 		System.out.println("Enter your password:");
 		this.password = sc.next() + sc.nextLine();
 
@@ -84,7 +88,6 @@ public class User implements Menuable, Serializable {
 		
 		UserPostgres u = new UserPostgres();
 		String us = u.checkLogin(username, password).toString();
-	
 			
 		switch(us) {
 		case "customer":
@@ -94,35 +97,32 @@ public class User implements Menuable, Serializable {
 				e.Menu();
 				break;
 			default:
-				System.out.println("Invalid login info");
-				Login();
+				logE("Invalid login input");
+				Menu();
 				break;
-		}
-		
-
-
+		}		
+		return us;
 	}
 
 	
 	public void enterInfo() {
 		
-		System.out.println("Enter your username");
-		
-		this.username = sc.nextLine() + sc.next();
-			while(this.username.isBlank())
-			{
-				System.out.println("CANNOT BE EMPTY! Please try again...");
-				this.username = sc.nextLine();
-			}
+		System.out.println("Enter your username");		
+		this.username = sc.next() + sc.nextLine(); //+ sc.next();
 		
 		System.out.println("Enter your password");
-		this.password = sc.nextLine() + sc.next();
-			while(this.password.isBlank())
-			{
-				System.out.println("CANNOT BE EMPTY! Please try again...");
-				this.password = sc.nextLine();
-			}
-		createAcc((int)(Math.random()* 9999), "customer", this.username, this.password);
+		this.password = sc.next() + sc.nextLine();
+		
+		while(this.username.equals(checkExistingUsername(this.username))) {
+			System.out.println("Username already exists! Select another one");
+			this.username = sc.next() + sc.nextLine();
+		}
+		try {
+			createAcc((int)(Math.random()* 9999), "customer", this.username, this.password);
+		}
+		catch(Exception e) {
+			logE("UserID has already been taken.  Rough RNJ...Please do it again");
+		}
 		menuLoop = false;	
 	}
 	
@@ -133,12 +133,15 @@ public class User implements Menuable, Serializable {
 		 
 	}
 	
-	public void printUsers() {
+	public String checkExistingUsername(String string) {
+		return up.checkExistingUser(string);
+	}
+	
+	/*public void printUsers() {
 
 		System.out.println(_user.get(0).userID);
-		System.out.println(_user.get(0).password);
-		
-	}
+		System.out.println(_user.get(0).password);	
+	}*/
 
 	public int getUserID() {
 		return userID;
@@ -173,7 +176,15 @@ public class User implements Menuable, Serializable {
 	}
 	
 
+	public void logI(String s) { // outputs string 's' with new line
+		l.info(s);
+		l.info("                 ");
+	}
 	
+	public void logE(String s) { // outputs string 's' with new line
+		l.error(s);
+		l.error("                 ");
+	}
 	
 	
 }
