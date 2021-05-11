@@ -255,3 +255,7 @@
 {INFO} -  [project0.Application]   -                           May-05-21 Wednesday PDT 09:26:54
 {INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 110     May-05-21 Wednesday PDT 09:27:19
 {INFO} -  [project0.Employee]   -     Total payment during the two specified dates: 206     May-05-21 Wednesday PDT 09:27:41
+{INFO} -  [project0.Application]   -     Begin Application     May-10-21 Monday PDT 18:49:28
+{INFO} -  [project0.Application]   -                           May-10-21 Monday PDT 18:49:28
+{ERROR} -  [project0.User]   -     Invalid input during user menu     May-10-21 Monday PDT 18:49:39
+{ERROR} -  [project0.User]   -                           May-10-21 Monday PDT 18:49:39
