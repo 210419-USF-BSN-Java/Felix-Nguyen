@@ -1,26 +1,26 @@
-package models;
+package com.revature.models;
 
 import java.io.Serializable;
 
 public class Users implements Serializable{
 	
 	private int id;
-	private String userType;
 	private String firstName;
 	private String lastName;
 	private String username;
 	private String password;
 	private String email;
+	private String role;
 	
-	public Users(String first, String userType, String last, String username, String password, String email) {
+	public Users(int id, String first, String last, String username, String password, String email, String role) {
 		super();
 		this.id = id;
-		this.userType = userType;
 		this.firstName = first;
 		this.lastName = last;
 		this.username = username;
 		this.password = password;
-		this.email = email;
+		this.email = email;  
+		this.role = role;
 	}
 
 	public int getId() {
@@ -29,14 +29,6 @@ public class Users implements Serializable{
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getUserType() {
-		return userType;
-	}
-
-	public void setUserType(String userType) {
-		this.userType = userType;
 	}
 
 	public String getFirstName() {
@@ -79,6 +71,14 @@ public class Users implements Serializable{
 		this.email = email;
 	}
 
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -88,7 +88,7 @@ public class Users implements Serializable{
 		result = prime * result + id;
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((userType == null) ? 0 : userType.hashCode());
+		result = prime * result + ((role == null) ? 0 : role.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
@@ -124,10 +124,10 @@ public class Users implements Serializable{
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
-		if (userType == null) {
-			if (other.userType != null)
+		if (role == null) {
+			if (other.role != null)
 				return false;
-		} else if (!userType.equals(other.userType))
+		} else if (!role.equals(other.role))
 			return false;
 		if (username == null) {
 			if (other.username != null)
@@ -139,9 +139,11 @@ public class Users implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Users [id=" + id + ", userType=" + userType + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", username=" + username + ", password=" + password + ", email=" + email + "]";
+		return "Users [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", username=" + username + ", password=" + password + ", email=" + email + ", role=" + role + "]";
 	}
+
 	
 	
-}
+	
+} 
