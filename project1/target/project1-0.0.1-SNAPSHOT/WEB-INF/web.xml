@@ -5,11 +5,11 @@
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
 	<servlet>
-		<servlet-name>FrontController</servlet-name>
+		<servlet-name>FC</servlet-name>
 		<servlet-class>com.revature.controllers.FrontController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>FrontController</servlet-name>
-		<url-pattern>/alright</url-pattern>
+		<servlet-name>FC</servlet-name>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 </web-app>

@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,14 +16,15 @@ public class FrontController extends HttpServlet{
 	private RequestHelper rh = new RequestHelper();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
-
-		String path = request.getRequestURI().substring(request.getContextPath().length());
+		PrintWriter pw = response.getWriter();
+		pw.println("hello");
+		/*String path = request.getRequestURI().substring(request.getContextPath().length());
 		
 		if(path.startsWith("/static/") || path.equals("/") || path.equals("/index.html") ) {
 			super.doGet(request, response);
 		}else {
 			rh.processRequest(request, response);
-		}
+		}*/
 	}
 	
 

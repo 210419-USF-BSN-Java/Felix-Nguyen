@@ -9,16 +9,16 @@ public class UtilConnection {
 	private static Connection connection;
 	
 	public static Connection getConnectionFromEnv() throws SQLException
-	{
+	{		
 
-		String url = System.getenv("DB_URL");
-		String username = System.getenv("DB_USER");
-		String password = System.getenv("DB_PASS");
-
-		if(connection == null || connection.isClosed()) {
-		connection = DriverManager.getConnection(url, username, password);
-		}
+		String RDS_HOSTNAME = System.getenv("RDS_HOSTNAME");
+		String RDS_USERNAME = System.getenv("RDS_USERNAME");
+		String RDS_PASS = System.getenv("RDS_PASS");
+		String jdbcURL = "jdbc:postgresql://" + RDS_HOSTNAME + ":" + 5432 + "/" + RDS_USERNAME +"?user=" + RDS_USERNAME + "&password=" + RDS_PASS;
 		
+		if(connection == null || connection.isClosed()) {
+			connection = DriverManager.getConnection(jdbcURL);
+			}
 		return connection;
 	}
 }
