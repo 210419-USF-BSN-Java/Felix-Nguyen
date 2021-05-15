@@ -5,7 +5,7 @@ import com.revature.models.Users;
 
 public class EmployeeServices {
 
-	Reimbursement r = new Reimbursement(0, null, null, null, null, null);
+	Reimbursement r = new Reimbursement(0, 0, null, null, null, null, null, null, null, null);
 	Users user = new Users(0, null, null, null, null, null, null);
 	
 	public void viewHome() {

@@ -15,13 +15,14 @@ public class Users implements Serializable{
 	public Users(int id, String first, String last, String username, String password, String email, String role) {
 		super();
 		this.id = id;
-		this.firstName = first;
-		this.lastName = last;
 		this.username = username;
 		this.password = password;
+		this.firstName = first;
+		this.lastName = last;
 		this.email = email;  
 		this.role = role;
 	}
+	public Users() {};
 
 	public int getId() {
 		return id;

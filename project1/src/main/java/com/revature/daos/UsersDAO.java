@@ -11,7 +11,7 @@ public interface UsersDAO {
 	Users getUserById(int id);
 	//List<Users> getAllUsers();
 	List<Users> getAllEmp();
-	Users updateInfo(Users u);
+	Integer updateInfo(Users u);
 	Users viewInfo(Users u);
-	//Users addReceipt()
+	List<Users> getUsersByRole(String s);
 }
