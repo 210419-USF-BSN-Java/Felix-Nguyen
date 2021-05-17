@@ -1,7 +1,8 @@
 <html>
 
 <head>
-	<title>ERS</title>
+	<title>ERS Login Page</title>
+	<meta charset="UTF-8">
 	<!-- background-image: url(bloackatiel_windows.jpg); -->
 	<style>
 		html{
@@ -18,16 +19,10 @@
 			font-size: 20px;
 			font-family:cursive;		
 			color:aqua;
-			font-weight:600;
-		
+			font-weight:600;		
 		}
 		
-		body{
-			
-		}
-		
-			.login{
-		
+		.login{	
 			font-size: 20px;
 			font-family:cursive;		
 			color:black;	
@@ -36,8 +31,7 @@
 			padding: 20px;
 			position:relative;
 			text-align:center;
-			
-			
+
 
 		}
 		
@@ -55,30 +49,43 @@
 			padding:20px;
 			border-radius:20px;
 		}
-		
+		.nav-link{
+			font-family:'Times New Roman', Times, serif;
+			font-size: medium;
+			text-decoration: none;
+		}
+		h1{
+			font-size:medium;
+			color:black;
+			font-family:'Times New Roman', Times, serif;
+			
+		}
 		
 	
 	</style>
 	
 	
 	<!-- 	<label for = "Username"/> -->
-	<!-- ✉ -->
+	<!-- ✉  🔒 -->
 	
 </head>
 	<body>
+	
 	 <script src="script.js"></script>
-	<div class = "heading">ヘ(￣ω￣ヘ) (〜￣▽￣)〜</h1>
+	<div class = "heading">ヘ(￣ω￣ヘ) (〜￣▽￣)〜</h1>	
 	<div class = "heading">ERS </div>
 	<br><br><br><br><br><br><br>
 	<form>
 		<br><br>
 		<div class = "loginform">
 			<div class = "login">Login</div>
-			<input type = "text" name = "Username" placeholder = " 💩 Username" required/>
+			<input type = "text" name = "Username" placeholder = " 💩  Username" required/>
 			<br><br>
-			<input type = "password" name = "password" placeholder = " 🔒 Password" required/>	
+			<input type = "password" name = "password" placeholder = " 🔒  Password" required/>	
 			<br><br>
 			<input type = "button" name = "submit" value = "Submit"/>
+			<h1>Don't have an account?</h1>
+		<a class="nav-link" href="SignUp.html">Sign up</a>
 		</div>
 		<br><br><br><br><br><br><br><br><br><br><br><br>
 	</form>

@@ -44,9 +44,17 @@
 			<scope>provided</scope>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-catalina</artifactId>
+			<version>9.0.45</version>
+		</dependency>
+		
 	</dependencies>
     	
-  		
+  		<build>
+		<finalName>FrontController</finalName>
+	</build>
 
   
   
