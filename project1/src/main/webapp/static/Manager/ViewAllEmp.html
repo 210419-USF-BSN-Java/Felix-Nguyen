@@ -1,0 +1,145 @@
+<html>
+<head>
+<title>ERS</title>
+<meta charset="utf-8"/>
+<style>
+	.nav-link{
+		font-family:cursive;
+		  background-color: #f44336;
+		  color: white;
+		  padding: 14px 25px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+	}
+	
+	table {
+  		border-collapse: collapse;
+	}
+
+	th{
+		width:500px;
+		border: 2px solid grey;
+	}
+
+	td{
+		text-align:center;
+	}
+	
+</style>
+</head>
+	
+
+<body>
+<h1>View All Employees!'<h1>
+<a class="nav-link" href="ManagerHome.html">Manager Home</a>
+<a class="nav-link" href="A_R_Requests.html">Accept/Reject Requests</a>
+<a class="nav-link" href="ViewAllEmp.html">View All Employees</a>
+<a class="nav-link" href="http://localhost:8080/project1/index.html">Log Out</a>
+<br><br>
+<section id = "data"></section>
+<script>
+let apiURL = 'http://localhost:8080/project1/Employee';
+document.addEventListener("load", getData());
+
+function getData(){
+    
+    // Retrieving the user input, in this case the pokemon id to be retrieved
+    
+    let xhr = new XMLHttpRequest();
+    //xhr.responseType = "text";
+    xhr.onreadystatechange = receiveData;
+    xhr.open('GET', apiURL);
+    xhr.send();
+
+    function receiveData(){
+        let dataSection = document.getElementById('data');
+
+        if(xhr.readyState === 4){
+            if(xhr.status >= 200 && xhr.status < 300){
+                let response = xhr.responseText;                	
+                response = JSON.parse(response);
+                populateData(response);
+            } else{
+                console.log("else");
+            }
+        }
+    }
+}
+
+function populateData(response){
+    
+   console.log(response);
+   let dataSection = document.getElementById('data');
+    // Resets the innerHTML before loading new data
+   dataSection.innerHTML ='';
+
+   let nameTag = document.createElement('h5');
+   console.log(response);
+   
+
+
+	function tableCreate() {
+
+	  let tbl = document.createElement('table');	 
+	  let thead = document.createElement('thead');
+	  let tr = document.createElement('tr')
+	   var th = [];
+	  for (i = 0; i < 7; i++) {
+	    th[i] = document.createElement('th');
+	} 
+	  
+	  dataSection.appendChild(tbl);
+	  tbl.appendChild(thead);
+	  thead.appendChild(tr);
+	  
+	  for (i = 0; i < 7; i++) {
+  		  tr.appendChild(th[i]);
+	  } 
+			
+	
+	  let headers = ["ID", "First Name", "Last Name", "Username", "Password", "Email", "Role"];
+	    for (i = 0; i < 7; i++) {
+   			 th[i].innerHTML = headers[i];
+		} 
+	  
+
+	 
+for (a = 0; a < response.length; a++) {
+let body = [response[a].id, response[a].firstName, response[a].lastName, response[a].username, response[a].password, response[a].email, response[a].role];
+	
+	
+
+	   let tbody = document.createElement('tbody');
+	   tbl.appendChild(tbody);
+	  
+	   let bodyrow = [];
+	  
+		bodyrow[i] = document.createElement('tr');
+		tbody.appendChild(bodyrow[i]);
+		
+
+	  	let td = [];
+	  
+		for (k = 0; k < 7; k++) {
+	   		td[k] = document.createElement('td');
+	   		td[k].innerHTML = body[k];	   		
+	   		bodyrow[i].appendChild(td[k]);
+		 } 
+	 	  
+	   
+	}
+
+}
+
+
+tableCreate();
+
+
+	   
+}
+</script>
+
+</body>
+
+</html>

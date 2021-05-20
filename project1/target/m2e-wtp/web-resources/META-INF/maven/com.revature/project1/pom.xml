@@ -52,8 +52,8 @@
 		
 	</dependencies>
     	
-  		<build>
-		<finalName>FrontController</finalName>
+  	<build>
+		<finalName>project1</finalName>
 	</build>
 
   

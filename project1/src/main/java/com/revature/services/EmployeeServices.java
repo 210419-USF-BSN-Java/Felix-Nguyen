@@ -1,42 +1,48 @@
 package com.revature.services;
 
+import java.util.List;
+
+import com.revature.daos.ReimbursementDAOImp;
+import com.revature.daos.UsersDAOImp;
 import com.revature.models.Reimbursement;
 import com.revature.models.Users;
 
 public class EmployeeServices {
 
-	Reimbursement r = new Reimbursement(0, 0, null, null, null, null, null, null, null, null);
-	Users user = new Users(0, null, null, null, null, null, null);
-	
+	private UsersDAOImp uDAO = new UsersDAOImp();
+	private ReimbursementDAOImp  rDAO = new ReimbursementDAOImp();
 	public void viewHome() {
 		
 	}
 	
-	public Reimbursement addTicket() {
-		return r;
+	public Integer addTicket(Reimbursement r) {
+		return rDAO.add(r);		
 	}
 	
 	public Reimbursement uploadReceipt() {
-		return r;
+		//TODO:
+		return null;
 	}
 	
-	public Reimbursement viewPendingTickets(Users u) {
-		return r;
+	public List<Reimbursement> viewPendingTickets(Users u) {
+		return rDAO.viewPendingEmpTickets();
 	}
 	
-	public Reimbursement viewResolvedTickets(Users u) {
-		return r;
+	public List<Reimbursement> viewResolvedTickets(Users u) {
+		return rDAO.viewResolvedEmpTickets();
 	}
 	
-	public int viewInfo(Users u) {
-		return -1;
+	public void viewInfo(Users u) {
+		uDAO.getUserById(u.getId());
 	}
 	
 	public Users updateInfo(Users u) {
-		return user;
+		uDAO.updateInfo(u);
+		return u;
 	}
 	
 	public Users sendEmail(Users u) {
-		return user;
+		//TODO:
+		return null;
 	}
 }

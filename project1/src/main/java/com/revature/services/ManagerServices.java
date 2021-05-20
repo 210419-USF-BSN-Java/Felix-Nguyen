@@ -1,38 +1,43 @@
 package com.revature.services;
 
+import java.util.List;
+
+import com.revature.daos.ReimbursementDAOImp;
+import com.revature.daos.UsersDAOImp;
 import com.revature.models.Reimbursement;
 import com.revature.models.Users;
 
 public class ManagerServices {
 
-	Reimbursement r = new Reimbursement(0, 0, null, null, null, null, null, null, null, null);
+	private UsersDAOImp uDAO = new UsersDAOImp();
+	private ReimbursementDAOImp  rDAO = new ReimbursementDAOImp();
 	
 	public void viewHome() {
 		
 	}
 	
-	public Reimbursement approveTicket(Reimbursement ticket) {
-		return r;
-	}
-	
-	public Reimbursement denyTicket(Reimbursement ticket) {
-		return r;
-	}
-	
-	public void viewAllTickets() {
+	public Reimbursement approveTicket(Users u, Reimbursement ticket) {
+		return rDAO.approveTicket(u, ticket);
 		
+	}
+	
+	public Reimbursement rejectTicket(Users u, Reimbursement ticket) {
+		return rDAO.rejectTicket(u, ticket);
+	}
+	
+	public List<Reimbursement> viewAllTickets() {
+		return rDAO.viewAllTickets();
 	}
 	
 	public void viewAllReceipts() {
-		
+		//TODO:	
 	}
 	
-	public void viewAllEmployees() {
-		
+	public List<Users> viewAllEmployees() {
+		return uDAO.getAllEmp();
 	}
 	
-	public int viewEmpTicket(Users u) {
-		
-		return -1;
+	public List<Reimbursement> viewEmpTicket(Users u) {
+		return rDAO.viewEmpTickets();
 	}
 }

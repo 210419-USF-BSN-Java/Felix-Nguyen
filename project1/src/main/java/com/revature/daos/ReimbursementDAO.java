@@ -3,6 +3,7 @@ package com.revature.daos;
 import java.util.List;
 
 import com.revature.models.Reimbursement;
+import com.revature.models.Users;
 
 public interface ReimbursementDAO {
 
@@ -13,8 +14,11 @@ public interface ReimbursementDAO {
 	String getStatusById(int id);
 	Integer getTicketsByType(String s);
 	List<Reimbursement> viewEmpTickets();
-	List<Reimbursement> viewPendingEmpTickets();
-	List<Reimbursement> viewResolvedEmpTickets();
-	
+	List<Reimbursement> viewPendingEmpTickets();// manager
+	List<Reimbursement> viewResolvedEmpTickets();// manager
+	List<Reimbursement> viewOwnPendingTickets();// employee
+	List<Reimbursement> viewOwnResolvedTickets();// employee
+	Reimbursement approveTicket(Users u, Reimbursement t);
+	Reimbursement rejectTicket(Users u,Reimbursement t);
 	
 }

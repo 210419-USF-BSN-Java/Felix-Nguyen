@@ -71,7 +71,7 @@ public class UsersDAOImp implements UsersDAO{
 		String sql = "select * from ers_users where user_role = ?";
 		List<Users> uList = new ArrayList<>();
 		try (Connection c = UtilConnection.getConnectionFromEnv()){
-			
+		
 			PreparedStatement ps = c.prepareStatement(sql);	
 			ps.setString(1, "employee");
 			ResultSet rs = ps.executeQuery();
@@ -86,11 +86,11 @@ public class UsersDAOImp implements UsersDAO{
 								rs.getString("user_role")
 						));
 			}
-
 		}
 		catch (SQLException e) {
 			//logE("Error sending/receiving data to the database");
-			e.getStackTrace();
+
+			System.out.println(e.getSQLState());
 		}
 
 		return uList;
@@ -153,6 +153,37 @@ public class UsersDAOImp implements UsersDAO{
 	public List<Users> getUsersByRole(String s) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Users checkLogin(String username, String password) {
+		String sql = "select * from ers_users where user_username = ? and user_password = ?";
+		Users user = new Users();
+		try (Connection c = UtilConnection.getConnectionFromEnv()){
+			
+			PreparedStatement ps = c.prepareStatement(sql);	
+			ps.setString(1, username);
+			ps.setString(2, password);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+			user = new Users(rs.getInt("user_id"),
+								rs.getString("user_username"),
+								rs.getString("user_password"),
+								rs.getString("user_firstname"),
+								rs.getString("user_lastname"),
+								rs.getString("user_email"),
+								rs.getString("user_role")
+						);
+			}
+
+		}
+		catch (SQLException e) {
+			//logE("Error sending/receiving data to the database");
+			e.getStackTrace();
+		}
+
+		return user;
 	}
 
 }

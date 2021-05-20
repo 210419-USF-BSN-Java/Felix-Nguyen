@@ -13,7 +13,7 @@ public class ManagerDelegate implements Delegatable{
 	
 	@Override
 	public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-	
+		String path = (String) request.getAttribute("path");
 			switch (request.getMethod()) {
 			case "GET":
 				//TODO

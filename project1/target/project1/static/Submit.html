@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>ERS</title>
+<style>
+	.nav-link{
+		font-family:cursive;
+		  background-color: #f44336;
+		  color: white;
+		  padding: 14px 25px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+	}
+	
+	input[type = checkbox]{
+		width:50px;
+	}
+	label{
+		font-size:medium;
+		
+	}
+	
+	
+	input:invalid {
+ 		background-color:lightgray;
+	}
+	
+</style>
+
+</head>
+
+
+<body>
+
+	<h1>We are submitting a ticket<h1>
+		<a class="nav-link" href="Employee.html">Home</a>
+		<br><br>
+	<form>
+		<div>
+			<input = "number" name = "Amount" placeholder = "Amount" required>
+		</div>
+			<br>
+		<div>
+       	 	<textarea input = "text" rows="5" cols="50" name="Description" id="Description" placeholder = "Description" required></textarea> 
+		</div>
+		<br>	
+		<input type = "checkbox" name = "LODGING" value = "LODGING">
+			<label for = "LODGING">Lodging</label>
+		<br>
+		<input type = "checkbox" name = "TRAVEL" value = "TRAVEL">
+			<label for = "TRAVEL">Travel</label>
+		<br>
+		<input type = "checkbox" name = "FOOD" value = "FOOD">
+			<label for = "FOOD">Food</label>
+		<br>
+		<input type = "checkbox" name = "OTHER" value = "OTHER">
+			<label for = "OTHER">Other</label>
+		<br><br>
+		<input type = "file" name = "file select" value = "Select File">
+		<br><br>
+		<input type = "submit" value = "Submit">
+		<br><br>
+	
+	</form>
+</body>
+
+</html>

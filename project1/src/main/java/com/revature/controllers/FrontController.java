@@ -18,8 +18,7 @@ public class FrontController extends DefaultServlet{
 	private RequestHelper rh = new RequestHelper();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
-//		PrintWriter pw = response.getWriter();
-//		pw.println("hello");
+
 		String path = request.getRequestURI().substring(request.getContextPath().length());
 		System.out.println(request.getRequestURI());
 		System.out.println(request.getContextPath());

@@ -4,40 +4,49 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Timestamp;
+import java.sql.Date;
 
 import com.revature.models.Reimbursement;
+import com.revature.models.Users;
 
 import util.UtilConnection;
 
 public class ReimbursementDAOImp implements ReimbursementDAO{
 
+	Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+	
 	@Override
 	public Integer add(Reimbursement ticket) {
-		String sql = "insert into reimbursement (reimb_id, reimb_amount, reimb_submitted, reimb_resolved, reimb_description, reimb_receipt reimb_author, reimb_resolver, reimb_status, reimb_type) values (?,?,?,?,?,?,?,?,?,?)";
-				
+
+		String sql = "insert into reimbursement (reimb_id, reimb_amount, reimb_submitted, reimb_resolved, reimb_description, reimb_receipt, reimb_author, reimb_resolver, reimb_status, reimb_type) values (?,?,?,?,?,?,?,?,?,?)";
+
 				int rs = 0;
 				try (Connection c = UtilConnection.getConnectionFromEnv()){
 					
-					PreparedStatement ps = c.prepareStatement(sql);			
+					PreparedStatement ps = c.prepareStatement(sql);	
+					
 					ps.setInt(1, ticket.getId());
-					ps.setInt(2, ticket.getAmount());
-					ps.setString(3, "CURRENT_TIMESTAMP"); //timestamp
-					ps.setString(4, null); //timestamp
+					ps.setDouble(2, ticket.getAmount());
+					ps.setTimestamp(3, timestamp);
+					ps.setTimestamp(4, null); //timestamp resolved
 					ps.setString(5, ticket.getDesc());
 					ps.setString(6, null); //receipt
 					ps.setString(7, ticket.getAuthor());
 					ps.setString(8, ticket.getResolver());
 					ps.setString(9, ticket.getStatus());
 					ps.setString(10, ticket.getType());
-		
+//		
 					rs = ps.executeUpdate();
-		
+		System.out.println("Time: " + timestamp);
 				}
 				catch (SQLException e) {
 					//logE("Error sending/receiving data to the database");
-					e.getStackTrace();
+					e.printStackTrace();
 				}
 		
 				return rs;
@@ -213,6 +222,69 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 
 	@Override
 	public Integer getTicketsByType(String s) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Reimbursement approveTicket(Users u, Reimbursement t) {
+		String sql = "update from reimbursement set reimb_resolved = ?, reimb_resolver = ?, reimb_status = ?";
+		Reimbursement ticket = new Reimbursement();
+		int rs = 0;
+		try (Connection c = UtilConnection.getConnectionFromEnv()){
+			
+			PreparedStatement ps = c.prepareStatement(sql);	
+			ps.setTimestamp(1, timestamp);
+			ps.setString(2, u.getFirstName() + " " + u.getLastName());
+			ps.setString(3, "approved");
+
+		 rs = ps.executeUpdate();
+			
+			}
+
+		
+		catch (SQLException e) {
+			//logE("Error sending/receiving data to the database");
+			e.getStackTrace();
+		}
+
+		return ticket;
+	}
+
+
+	@Override
+	public Reimbursement rejectTicket(Users u, Reimbursement t) {
+		String sql = "update from reimbursement set reimb_resolved = ?, reimb_resolver = ?, reimb_status = ?";
+		Reimbursement ticket = new Reimbursement();
+		int rs = 0;
+		try (Connection c = UtilConnection.getConnectionFromEnv()){
+			
+			PreparedStatement ps = c.prepareStatement(sql);	
+			ps.setTimestamp(1, timestamp);
+			ps.setString(2, u.getFirstName() + " " + u.getLastName());
+			ps.setString(3, "rejected");
+
+			rs = ps.executeUpdate();
+			
+			}
+
+		
+		catch (SQLException e) {
+			//logE("Error sending/receiving data to the database");
+			e.getStackTrace();
+		}
+
+		return ticket;
+	}
+
+	@Override
+	public List<Reimbursement> viewOwnPendingTickets() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Reimbursement> viewOwnResolvedTickets() {
 		// TODO Auto-generated method stub
 		return null;
 	}

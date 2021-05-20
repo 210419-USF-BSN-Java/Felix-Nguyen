@@ -4,8 +4,10 @@ import java.io.Serializable;
 
 public class Reimbursement implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	private int id;
-	private int amount;
+	private double amount;
 	private String submitDate;
 	private String resolvedDate;
 	private String desc;
@@ -17,7 +19,7 @@ public class Reimbursement implements Serializable{
 	
 
 
-	public Reimbursement(int id, int amount, String submitDate, String resolvedDate, String desc, String receipt,
+	public Reimbursement(int id, double amount, String submitDate, String resolvedDate, String desc, String receipt,
 			String author, String resolver, String status, String type) {
 		super();
 		this.id = id;
@@ -46,14 +48,14 @@ public class Reimbursement implements Serializable{
 
 
 
-	public int getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
 
 
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public void setAmount(double d) {
+		this.amount = d;
 	}
 
 
@@ -153,12 +155,13 @@ public class Reimbursement implements Serializable{
 	}
 
 
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + amount;
+		long temp;
+		temp = Double.doubleToLongBits(amount);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
 		result = prime * result + ((desc == null) ? 0 : desc.hashCode());
 		result = prime * result + id;
@@ -170,9 +173,6 @@ public class Reimbursement implements Serializable{
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
-
-
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -182,7 +182,7 @@ public class Reimbursement implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Reimbursement other = (Reimbursement) obj;
-		if (amount != other.amount)
+		if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
 			return false;
 		if (author == null) {
 			if (other.author != null)
@@ -228,9 +228,6 @@ public class Reimbursement implements Serializable{
 			return false;
 		return true;
 	}
-
-
-
 	@Override
 	public String toString() {
 		return "Reimbursement [id=" + id + ", amount=" + amount + ", submitDate=" + submitDate + ", resolvedDate="

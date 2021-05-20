@@ -6,6 +6,7 @@ import com.revature.models.Users;
 
 public interface UsersDAO {
 	
+	Users checkLogin(String username, String password);
 	int add(Users u);
 	//int remove(Users u);
 	Users getUserById(int id);
