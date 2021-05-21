@@ -1,6 +1,9 @@
+<!DOCTYPE html>
 <html>
 <head>
+
 <title>ERS</title>
+
 <style>
 	.nav-link{
 		font-family:cursive;
@@ -20,48 +23,76 @@
 		
 	}
 	
-	
 	input:invalid {
  		background-color:lightgray;
 	}
+	table {
+  		border-collapse: collapse;
+	}
+
+	th{
+		width:500px;
+		border: 2px solid grey;
+	}
+
+	td{
+		text-align:center;
+	}
+	
 	
 </style>
 
 </head>
-
-
+	<meta charset="utf-8"/>
 <body>
 
 	<h1>We are submitting a ticket<h1>
-		<a class="nav-link" href="Employee.html">Home</a>
+		<a class="nav-link" href="http://localhost:8080/project1/static/Employee.html">Home</a>
+		<a class="nav-link" href="http://localhost:8080/project1/static/Submit.html">Submit a ticket</a>
+		<a class="nav-link" href="http://localhost:8080/project1/static/ViewInfo.html">View Info</a>
+		<a class="nav-link" href="http://localhost:8080/project1/static/UpdateInfo.html">Update Info</a>
+		<a class="nav-link" href="http://localhost:8080/project1/">Log Out</a>
 		<br><br>
-	<form>
+	<form action = "../Reimbursement" method = "POST">
 		<div>
-			<input = "number" name = "Amount" placeholder = "Amount" required>
+			<input id = "amount" type = "number" step="0.01" name = "Amount" placeholder = "Amount" value = '0.00' required>
 		</div>
 			<br>
 		<div>
-       	 	<textarea input = "text" rows="5" cols="50" name="Description" id="Description" placeholder = "Description" required></textarea> 
+       	 	<textarea id = "description" type = "text" rows="5" cols="50" name="Description" id="Description" placeholder = "Description" required></textarea> 
 		</div>
 		<br>	
-		<input type = "checkbox" name = "LODGING" value = "LODGING">
-			<label for = "LODGING">Lodging</label>
-		<br>
-		<input type = "checkbox" name = "TRAVEL" value = "TRAVEL">
-			<label for = "TRAVEL">Travel</label>
-		<br>
-		<input type = "checkbox" name = "FOOD" value = "FOOD">
-			<label for = "FOOD">Food</label>
-		<br>
-		<input type = "checkbox" name = "OTHER" value = "OTHER">
-			<label for = "OTHER">Other</label>
+	
+		<label for = "type">Reimbursement Type: </label>		
+		<select name = "type" required>
+			<option name = "None" value = "">Select Option</option>			
+			<option name = "lodging"value = "LODGING">Lodging</option>
+			<option name = "travel"value = "TRAVEL">Travel</option>
+			<option name = "food"value = "FOOD">Food</option>
+			<option name = "other"value = "OTHER">Other</option>
+		</select>
 		<br><br>
+		<label for = "file">Upload Receipt: </label>
 		<input type = "file" name = "file select" value = "Select File">
 		<br><br>
 		<input type = "submit" value = "Submit">
 		<br><br>
 	
-	</form>
+	</form>	
+
+		<input type = "button" value = "submit" id = "sb">
+
+	
+	
+<script>
+
+document.getElementById('amount').onchange = fixNum;
+
+function fixNum(){
+	this.value = parseFloat(this.value).toFixed(2);
+}
+	   
+</script>
 </body>
 
 </html>

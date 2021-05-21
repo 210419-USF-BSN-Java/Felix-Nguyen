@@ -16,7 +16,7 @@ function requestLogin(){
 				session is a storage that lasts for that specific page session(tab)
 				here we store our auth token
 			*/
-			sessionStorage.setItem("token", auth);
+			localStorage.setItem("token", auth);
 			/*
 				if the login is successful, redirects to the home page
 			*/

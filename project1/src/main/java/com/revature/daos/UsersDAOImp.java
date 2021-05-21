@@ -121,7 +121,7 @@ public class UsersDAOImp implements UsersDAO{
 	@Override
 	public Users viewInfo(Users u) {
 		String sql = "select * from ers_users where user_role = ?";
-		Users user = new Users();
+		Users user = null;
 		try (Connection c = UtilConnection.getConnectionFromEnv()){
 			
 			PreparedStatement ps = c.prepareStatement(sql);	
