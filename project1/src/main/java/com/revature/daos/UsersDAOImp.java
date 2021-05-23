@@ -98,15 +98,16 @@ public class UsersDAOImp implements UsersDAO{
 
 	@Override
 	public Integer updateInfo(Users u) {
-		String sql = "update ers_users set user_firstname = ?, user_lastname = ?, user_password = ?, user_email = ? where user_id = ? ";
+		String sql = "update ers_users set user_firstname = ?, user_lastname = ?, user_username = ?, user_password = ?, user_email = ? where user_id = ? ";
 		int result = 0;
 		try (Connection c = UtilConnection.getConnectionFromEnv()){
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setString(1, u.getFirstName());
 			ps.setString(2, u.getLastName());
-			ps.setString(3, u.getPassword());
-			ps.setString(4, u.getEmail());
-			ps.setInt(5, u.getId());
+			ps.setString(3,  u.getUsername());
+			ps.setString(4, u.getPassword());
+			ps.setString(5, u.getEmail());
+			ps.setInt(6, u.getId());
 			
 			result = ps.executeUpdate();
 			

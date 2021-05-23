@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.revature.delegates.AuthenticateDelegate;
 import com.revature.delegates.EmployeeDelegate;
-import com.revature.delegates.EmployeeSubmitDelegate;
 import com.revature.delegates.ManagerDelegate;
 import com.revature.delegates.ReimbursementDelegate;
 
@@ -16,7 +15,6 @@ import com.revature.delegates.ReimbursementDelegate;
 public class RequestHelper {
 
 	EmployeeDelegate ed = new EmployeeDelegate();
-	EmployeeSubmitDelegate esd = new EmployeeSubmitDelegate();
 	ManagerDelegate md = new ManagerDelegate();
 	ReimbursementDelegate rd = new ReimbursementDelegate();
 	AuthenticateDelegate ad = new AuthenticateDelegate();
@@ -35,7 +33,7 @@ public class RequestHelper {
 		switch (uriString.toString()) {
 		case "":
 			ad.process(request, response);
-			System.out.println("inside login");
+			System.out.println("inside authentication");
 			break;
 		case "Submit.html":
 			request.getRequestDispatcher("/static/Submit.html").forward(request, response);
@@ -43,15 +41,15 @@ public class RequestHelper {
 			break;
 	
 		case "ManagerHome.html":		
-			System.out.println("inside login");
+			System.out.println("inside managerhome");
 			request.getRequestDispatcher("/static/Manager/ManagerHome.html").forward(request, response);
 			break;
 		case "ViewAllEmp.html":		
-			System.out.println("inside login");
+			System.out.println("inside viewAllEmp");
 			request.getRequestDispatcher("/static/Manager/ViewAllEmp.html").forward(request, response);
 			break;
 		case "A_R_Requests.html":		
-			System.out.println("inside login");
+			System.out.println("inside Requests");
 			request.getRequestDispatcher("/static/Manager/A_R_Requests.html").forward(request, response);
 			break;
 		case "login":		

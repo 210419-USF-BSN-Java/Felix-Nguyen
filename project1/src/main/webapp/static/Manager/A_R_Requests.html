@@ -30,5 +30,97 @@
 <a class="nav-link" href="http://localhost:8080/project1/static/Manager/ViewAllEmp.html">View All Employees</a>
 <a class="nav-link" href="http://localhost:8080/project1/">Log Out</a>
 </body>
+<script>
 
+let apiURL = 'http://localhost:8080/project1/Reimbursement';
+
+document.addEventListener("load", getData());
+
+function getData(){
+    
+    let xhr = new XMLHttpRequest();
+    //xhr.responseType = "text";
+    xhr.onreadystatechange = receiveData;
+    xhr.open('GET', apiURL);
+    xhr.send();
+
+    function receiveData(){
+        let dataSection = document.getElementById('data');
+
+        if(xhr.readyState === 4){
+            if(xhr.status >= 200 && xhr.status < 300){
+                let response = xhr.responseText;                	
+                response = JSON.parse(response);
+                populateData(response);
+            } else{
+                console.log("else");
+            }
+        }
+    }
+}
+
+function populateData(response){
+    
+   console.log(response);
+   let dataSection = document.getElementById('data');
+
+   dataSection.innerHTML ='';
+
+   let nameTag = document.createElement('h5');
+   console.log(response);
+   
+
+
+	function tableCreate() {
+
+	  let tbl = document.createElement('table');	 
+	  let thead = document.createElement('thead');
+	  let tr = document.createElement('tr')
+
+	  var th = [];
+	  
+for (i = 0; i < 10; i++) {
+    th[i] = document.createElement('th');
+} 
+	  
+	  dataSection.appendChild(tbl);
+	  tbl.appendChild(thead);
+	  tbl.appendChild(thead);
+	  thead.appendChild(tr);
+	  
+	  for (i = 0; i < 10; i++) {
+    tr.appendChild(th[i]);
+} 
+
+	  
+
+	
+	  let headers = ["ID", "Amount", "SubmitDate", "ResolvedDate", "Desc", "Receipt", "Author", "Resolver", "Status", "Type"];
+	    for (i = 0; i < 10; i++) {
+    th[i].innerHTML = headers[i];
+} 
+	
+	  
+	   let tbody = document.createElement('tbody');
+	   tbl.appendChild(tbody);
+	   let tr1 = document.createElement('tr');
+	   tbody.appendChild(tr1);
+	   let td = [];
+	   let body = [response[0].id, response[0].amount, response[0].submitDate, response[0].resolvedDate, response[0].desc, response[0].receipt, response[0].author, response[0].resolver, response[0].status, response[0].type];
+	     for (i = 0; i < 10; i++) {
+   			 td[i] = document.createElement('td');
+   			 td[i].innerHTML = body[i];
+   			 tr1.appendChild(td[i]);
+	 	 } 
+	   
+
+
+}
+
+tableCreate();
+
+
+	   
+}
+</script>
 </html>

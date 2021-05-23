@@ -20,7 +20,19 @@ function requestLogin(){
 			/*
 				if the login is successful, redirects to the home page
 			*/
-			window.location.href="http://localhost:8080/project1/static/Employee.html"
+			let parseToken = localStorage.getItem("token");
+		
+			let s = parseToken.split(":");
+				console.log(s[1]);
+			if(s[1] == "manager") {
+						window.location.href = "http://localhost:8080/project1/static/Manager/ManagerHome.html";			
+					
+					}
+					else {
+						window.location.href = "http://localhost:8080/project1/static/Employee.html";			
+					}
+			
+			//window.location.href="http://localhost:8080/project1/static/Employee.html"
 		} 
 		else if (xhr.readyState == 4){
 			//document.getElementById('message').innerHTML='Incorrect credentials!';

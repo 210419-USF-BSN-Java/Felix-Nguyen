@@ -22,7 +22,10 @@ public class presentation {
 		
 		ReimbursementDAOImp ri = new ReimbursementDAOImp();
 		UsersDAOImp ui = new UsersDAOImp();
-		System.out.println(ui.checkLogin("u", "p"));
+//		System.out.println(ui.checkLogin("u", "p"));
+		System.out.println(ui.getUserById(1));
+		
+		
 //		Iterator it = r.viewAllTickets().iterator();
 //		
 //		while(it.hasNext()) {
@@ -50,7 +53,7 @@ public class presentation {
 //		r.setStatus("pending");
 //		r.setType("food");
 //		ri.add(r);
-
+		
 		
 	}
 

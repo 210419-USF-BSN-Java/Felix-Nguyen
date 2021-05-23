@@ -41,13 +41,7 @@ public class AuthenticateDelegate implements Delegatable{
 					System.out.println("token: " + token);
 					response.setStatus(200);
 					response.setHeader("Authorization", token);
-					if(us.getRole().equals("manager")) {
-						request.getRequestDispatcher("/static/Manager/ManagerHome.html").forward(request, response);			
 					
-					}
-					else {
-						request.getRequestDispatcher("/static/Employee.html").forward(request, response);
-					}
 				}
 				else {
 					System.out.println("incorrect credentials");

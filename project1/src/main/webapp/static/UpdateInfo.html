@@ -24,19 +24,60 @@
 		<a class="nav-link" href="http://localhost:8080/project1/">Log Out</a>
 
 <br>
-<h3>Please fill out the fields you need to update your information</h3>
-<h3>Not all fields need to be completed</h3>
+<h3>Please fill out ALL FIELDS to update your information</h3>
 <br>
 
-<form method = "POST">
-	<input type = "text" name = "firstName" placeholder = "First Name">
-	<input type = "text" name = "lastName" placeholder = "Last Name">
-	<input type = "text" name = "username" placeholder = "  💩  Username">
-	<input type = "text" name = "password" placeholder = "  🔒  Password">
-	<input type = "text" name = "email" placeholder = "  ✉  Email">
-	<input type = "submit" name = "submit" value = "Update">
 
-</form>
+	<input id = "firstName" type = "text" name = "firstName" placeholder = "First Name" required>
+	<input id = "lastName" type = "text" name = "lastName" placeholder = "Last Name" required>
+	<input id = "username" type = "text" name = "username" placeholder = "  💩  Username" required>
+	<input id = "password"type = "text" name = "password" placeholder = "  🔒  Password" required>
+	<input id = "email"type = "text" name = "email" placeholder = "  ✉  Email" required>
+	<input id = "submit" type = "submit" name = "submit" value = "Update">
+	
+<script>
+
+document.getElementById('submit').onclick = setResponse;
+
+function setResponse(){
+	let xhr = new XMLHttpRequest();
+	let url = "http://localhost:8080/project1/Employee";
+	xhr.open("GET", url);	
+	
+	let token = localStorage.getItem("token");
+	let firstName = document.getElementById('firstName').value;
+	let lastName = document.getElementById('lastName').value;
+	let username = document.getElementById('username').value;
+	let password = document.getElementById('password').value;
+	let email = document.getElementById('email').value;
+	
+	console.log(firstName);
+	console.log(lastName);
+	console.log(username);
+	console.log(password);
+	console.log(email);
+	
+	xhr.setRequestHeader("Authorization", token);
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.setRequestHeader("firstName", firstName);
+	xhr.setRequestHeader("lastName", lastName);
+	xhr.setRequestHeader("username", username);	
+	xhr.setRequestHeader("password", password);
+	xhr.setRequestHeader("email", email);	
+	
+	let body = `firstName=${firstName}&lastName=${lastName}&username=${username}&password=${password}&email=${email}`;
+	console.log(body);
+	xhr.send(body);
+}
+
+
+
+
+
+
+	
+</script>
+
 </body>
 
 </html>

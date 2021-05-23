@@ -28,15 +28,15 @@ public class ReimbursementDelegate implements Delegatable{
 	@Override
 	public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String path = (String) request.getAttribute("path");
-	
+		System.out.println("Method in reimbursement: " + request.getMethod());
 		if((path == null) || path.equals("")) {
 			switch (request.getMethod()) {
 			case "GET":
+				System.out.println("in reimbursement calling GET");
 				PrintWriter pw = response.getWriter();
 				pw.write(om.writerWithDefaultPrettyPrinter().writeValueAsString(ms.viewAllTickets()));		
 			case "POST":
 				Reimbursement r = new Reimbursement();
-		
 				String authToken = request.getHeader("Authorization");
 				System.out.println("Token: " + authToken);
 				// check to see if there is an auth header
@@ -54,16 +54,19 @@ public class ReimbursementDelegate implements Delegatable{
 						u = ui.getUserById(Integer.parseInt(idStr));
 					}
 				}
-				r.setId(ai.incrementAndGet());
-				System.out.println("Amount: " + request.getParameter("Amount"));
+				System.out.println("Amount: " + request.getParameter("amount"));
+				System.out.println("Description: " + request.getParameter("description"));
+				System.out.println("Type: " + request.getParameter("type"));
+				
+				r.setId(ai.incrementAndGet());				
 				r.setAuthor(u.getFirstName() + " " + u.getLastName());
-				r.setAmount(Double.parseDouble(request.getParameter("Amount")));						
-				r.setDesc(request.getParameter("Description"));
+				r.setAmount(Double.parseDouble(request.getHeader("amount")));							
+				r.setDesc(request.getHeader("description"));
 				r.setStatus("submitted");
-				r.setType(request.getParameter("type"));
+				r.setType(request.getHeader("type"));
 				es.addTicket(r);
 				response.setStatus(201);
-				response.sendRedirect("../project1/Reimbursement");
+				//response.sendRedirect("../project1/Reimbursement");
 			case "PUT":
 				//TODO
 				break;
