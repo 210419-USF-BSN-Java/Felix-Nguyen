@@ -22,7 +22,7 @@ public class EmployeeDelegate implements Delegatable{
 	@Override
 	public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String path = (String) request.getAttribute("path");
-		System.out.println(path);
+		System.out.println("Method in Emp Delegate: " + request.getMethod());
 		if((path == null) || path.equals("")) {
 			switch (request.getMethod()) {
 			case "GET":

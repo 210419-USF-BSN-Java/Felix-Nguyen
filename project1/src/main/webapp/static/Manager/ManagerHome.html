@@ -21,8 +21,18 @@
 <a class="nav-link" href="http://localhost:8080/project1/static//Manager/ManagerHome.html">Manager Home</a>
 <a class="nav-link" href="http://localhost:8080/project1/static/Manager/A_R_Requests.html">Accept/Reject Requests</a>
 <a class="nav-link" href="http://localhost:8080/project1/static/Manager/ViewAllEmp.html">View All Employees</a>
-<a class="nav-link" href="http://localhost:8080/project1/">Log Out</a>
+<a id = "logout" class="nav-link" href="http://localhost:8080/project1/">Log Out</a>
 
+
+<script>
+document.getElementById('logout').onclick = logout;
+
+
+function logout(){
+	localStorage.removeItem("token");
+	window.location.href = "http://localhost:8080/project1/static/index.html";	
+}
+</script>
 
 </body>
 

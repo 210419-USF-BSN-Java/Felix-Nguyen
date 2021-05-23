@@ -17,6 +17,7 @@ function requestLogin(){
 				here we store our auth token
 			*/
 			localStorage.setItem("token", auth);
+			
 			/*
 				if the login is successful, redirects to the home page
 			*/

@@ -1,0 +1,156 @@
+<html>
+<meta charset="utf-8"/>
+<head>
+<title>ERS</title>
+
+<style>
+	.nav-link{
+		font-family:cursive;
+		  background-color: #f44336;
+		  color: white;
+		  padding: 14px 25px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+	}
+	table {
+  		border-collapse: collapse;
+	}
+	th, td{
+		width:500px;
+		border: 2px solid grey;
+		text-align:center;
+	}
+
+	
+</style>
+</head>
+	<meta charset="utf-8"/>
+
+<body id = "body">
+<h1>Viewing your requests!<h1>
+		<a class="nav-link" href="http://localhost:8080/project1/static/Employee.html">Home</a>
+		<a class="nav-link" href="http://localhost:8080/project1/static/Submit.html">Submit a ticket</a>
+		<a class="nav-link" href="http://localhost:8080/project1/static/ViewInfo.html">View Info</a>
+		<a class="nav-link" href="http://localhost:8080/project1/static/UpdateInfo.html">Update Info</a>
+		<a class="nav-link" href="http://localhost:8080/project1/static/ViewRequests.html">View Your Tickets</a>
+		<a id = "logout" class="nav-link" href="http://localhost:8080/project1/">Log Out</a>
+<br><br><br>
+<section id = "data"></section>
+</body>
+<script>
+let apiURL = 'http://localhost:8080/project1/Reimbursement';
+let token = localStorage.getItem("token");
+let parseToken = token.split(":");
+
+document.addEventListener("load", getData());
+document.getElementById('logout').onclick = logout;
+
+
+function logout(){
+	localStorage.removeItem("token");
+	window.location.href = "http://localhost:8080/project1/static/index.html";	
+}
+
+function getData(){
+    
+    // Retrieving the user input, in this case the pokemon id to be retrieved
+    
+    let xhr = new XMLHttpRequest();
+    //xhr.responseType = "text";
+    xhr.onreadystatechange = receiveData;
+    xhr.open('GET', apiURL);
+    xhr.send();
+
+    function receiveData(){
+        let dataSection = document.getElementById('data');
+
+        if(xhr.readyState === 4){
+            if(xhr.status >= 200 && xhr.status < 300){
+                let response = xhr.responseText;                	
+                response = JSON.parse(response);
+                populateData(response);
+            } else{
+                console.log("else");
+            }
+        }
+    }
+}
+
+function populateData(response){
+    
+   console.log(response);
+   let dataSection = document.getElementById('data');
+    // Resets the innerHTML before loading new data
+   dataSection.innerHTML ='';
+
+   let nameTag = document.createElement('h5');
+   console.log(response);
+   
+	function tableCreate() {
+
+	  let tbl = document.createElement('table');	 
+	  let thead = document.createElement('thead');
+	  let tr = document.createElement('tr')
+	   var th = [];
+	  for (i = 0; i < 11; i++) {
+	    th[i] = document.createElement('th');
+	} 
+	  
+	  dataSection.appendChild(tbl);
+	  tbl.appendChild(thead);
+	  thead.appendChild(tr);
+	  
+	  for (i = 0; i < 11; i++) {
+  		  tr.appendChild(th[i]);
+	  } 
+			
+	
+	  let headers = ["ID", "Amount", "SubmitDate", "ResolvedDate", "Desc", "Receipt", "Author","AuthorID", "Resolver", "Status", "Type"];
+	    for (i = 0; i < 11; i++) {
+   			 th[i].innerHTML = headers[i];
+		} 
+	  
+
+	 
+	for (a = 0; a < response.length; a++) {
+	let body = [response[a].id, response[a].amount, response[a].submitDate, response[a].resolvedDate,
+				 response[a].desc, response[a].receipt, response[a].author, response[a].authorId, response[a].resolver, response[a].status, response[a].type];
+	
+	
+
+	   let tbody = document.createElement('tbody');
+	   tbl.appendChild(tbody);
+	  
+	   let bodyrow = [];
+	  
+		bodyrow[i] = document.createElement('tr');
+		tbody.appendChild(bodyrow[i]);
+		
+
+	  	let td = [];
+	  console.log("body: " + body[7]);
+	  	  console.log("tokenID: " + parseToken[0]);
+	  	//write tables ONLY if the ticket id matches the emp id
+		for (k = 0; k < 11; k++) {
+			if(body[7] == parseToken[0]){                    
+				td[k] = document.createElement('td');
+		   		td[k].innerHTML = body[k];	   		
+		   		bodyrow[i].appendChild(td[k]);
+			}
+	   	
+		 } 
+	 	  
+	   
+	}
+
+}
+
+
+tableCreate();
+
+
+	   
+}
+</script>
+</html>

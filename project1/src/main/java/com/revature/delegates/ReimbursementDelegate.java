@@ -28,45 +28,47 @@ public class ReimbursementDelegate implements Delegatable{
 	@Override
 	public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String path = (String) request.getAttribute("path");
-		System.out.println("Method in reimbursement: " + request.getMethod());
+		
 		if((path == null) || path.equals("")) {
 			switch (request.getMethod()) {
 			case "GET":
-				System.out.println("in reimbursement calling GET");
+				System.out.println("in reimbursement delegate calling GET");
 				PrintWriter pw = response.getWriter();
 				pw.write(om.writerWithDefaultPrettyPrinter().writeValueAsString(ms.viewAllTickets()));		
 			case "POST":
+				System.out.println("in reimbursement delegate calling POST");
 				Reimbursement r = new Reimbursement();
 				String authToken = request.getHeader("Authorization");
 				System.out.println("Token: " + authToken);
-				// check to see if there is an auth header
+
 				if (authToken != null) {
 					String[] tokenArr = authToken.split(":");
-					// if the token is formatted the way we expect, we can take the id from it and
-					// query for that user
+
 					if (tokenArr.length == 2) {
 						String idStr = tokenArr[0];
 						String userRoleStr = tokenArr[1];
 
-						// check to see if there is a valid user and if that user is the appropriate
-						// role in their token
-						
 						u = ui.getUserById(Integer.parseInt(idStr));
 					}
 				}
 				System.out.println("Amount: " + request.getParameter("amount"));
 				System.out.println("Description: " + request.getParameter("description"));
 				System.out.println("Type: " + request.getParameter("type"));
-				
+				try {
 				r.setId(ai.incrementAndGet());				
 				r.setAuthor(u.getFirstName() + " " + u.getLastName());
+				r.setAuthorId(u.getId());
 				r.setAmount(Double.parseDouble(request.getHeader("amount")));							
 				r.setDesc(request.getHeader("description"));
 				r.setStatus("submitted");
-				r.setType(request.getHeader("type"));
+				r.setType(request.getHeader("type"));			
 				es.addTicket(r);
-				response.setStatus(201);
-				//response.sendRedirect("../project1/Reimbursement");
+				}
+				catch(Exception e) {
+					e.printStackTrace();
+				}
+				//response.setStatus(201);
+
 			case "PUT":
 				//TODO
 				break;

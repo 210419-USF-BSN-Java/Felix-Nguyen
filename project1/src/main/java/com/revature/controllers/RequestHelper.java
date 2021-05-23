@@ -60,6 +60,7 @@ public class RequestHelper {
 			ed.process(request, response);
 			break;
 		case "Manager":
+			System.out.println("inside manager request helper");
 			md.process(request, response);
 			break;
 		case "Reimbursement":

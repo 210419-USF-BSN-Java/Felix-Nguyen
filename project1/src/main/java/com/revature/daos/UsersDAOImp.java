@@ -68,12 +68,12 @@ public class UsersDAOImp implements UsersDAO{
 
 	@Override
 	public List<Users> getAllEmp() {
-		String sql = "select * from ers_users where user_role = ?";
+		String sql = "select * from ers_users";
 		List<Users> uList = new ArrayList<>();
 		try (Connection c = UtilConnection.getConnectionFromEnv()){
 		
 			PreparedStatement ps = c.prepareStatement(sql);	
-			ps.setString(1, "employee");
+
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
@@ -154,7 +154,7 @@ public class UsersDAOImp implements UsersDAO{
 	public List<Users> getUsersByRole(String s) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}	
 
 	@Override
 	public Users checkLogin(String username, String password) {

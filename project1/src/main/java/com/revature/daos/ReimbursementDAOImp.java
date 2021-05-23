@@ -23,7 +23,7 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 	@Override
 	public Integer add(Reimbursement ticket) {
 
-		String sql = "insert into reimbursement (reimb_id, reimb_amount, reimb_submitted, reimb_resolved, reimb_description, reimb_receipt, reimb_author, reimb_resolver, reimb_status, reimb_type) values (?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into reimbursement (reimb_id, reimb_amount, reimb_submitted, reimb_resolved, reimb_description, reimb_receipt, reimb_author, reimb_authorid, reimb_resolver, reimb_status, reimb_type) values (?,?,?,?,?,?,?,?,?,?,?)";
 
 				int rs = 0;
 				try (Connection c = UtilConnection.getConnectionFromEnv()){
@@ -37,9 +37,10 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 					ps.setString(5, ticket.getDesc());
 					ps.setString(6, null); //receipt
 					ps.setString(7, ticket.getAuthor());
-					ps.setString(8, ticket.getResolver());
-					ps.setString(9, ticket.getStatus());
-					ps.setString(10, ticket.getType());
+					ps.setInt(8, ticket.getAuthorId());
+					ps.setString(9, ticket.getResolver());
+					ps.setString(10, ticket.getStatus());
+					ps.setString(11, ticket.getType());
 //		
 					rs = ps.executeUpdate();
 		System.out.println("Time: " + timestamp);
@@ -81,7 +82,6 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 		try (Connection c = UtilConnection.getConnectionFromEnv()){
 			
 			PreparedStatement ps = c.prepareStatement(sql);	
-			
 
 			ResultSet rs = ps.executeQuery();
 			
@@ -93,6 +93,7 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 												  rs.getString("reimb_description"),
 												  rs.getString("reimb_receipt"),
 												  rs.getString("reimb_author"),
+												  rs.getInt("reimb_authorid"),
 												  rs.getString("reimb_resolver"),
 												  rs.getString("reimb_status"),
 												  rs.getString("reimb_type")));
@@ -133,6 +134,7 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 											  rs.getString("reimb_description"),
 											  rs.getString("reimb_receipt"),
 											  rs.getString("reimb_author"),
+											  rs.getInt("reimb_authorID"),
 											  rs.getString("reimb_resolver"),
 											  rs.getString("reimb_status"),
 											  rs.getString("reimb_type")));
@@ -167,6 +169,7 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 											  rs.getString("reimb_description"),
 											  rs.getString("reimb_receipt"),
 											  rs.getString("reimb_author"),
+											  rs.getInt("reimb_authorID"),
 											  rs.getString("reimb_resolver"),
 											  rs.getString("reimb_status"),
 											  rs.getString("reimb_type")));
@@ -188,8 +191,7 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 		try (Connection c = UtilConnection.getConnectionFromEnv()){
 			
 			PreparedStatement ps = c.prepareStatement(sql);	
-			ps.setString(1, "pending");
-			
+			ps.setInt(1, id);
 
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
@@ -200,6 +202,7 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 											  rs.getString("reimb_description"),
 											  rs.getString("reimb_receipt"),
 											  rs.getString("reimb_author"),
+											  rs.getInt("reimb_authorID"),
 											  rs.getString("reimb_resolver"),
 											  rs.getString("reimb_status"),
 											  rs.getString("reimb_type"));
@@ -227,8 +230,8 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 	}
 
 	@Override
-	public Reimbursement approveTicket(Users u, Reimbursement t) {
-		String sql = "update from reimbursement set reimb_resolved = ?, reimb_resolver = ?, reimb_status = ?";
+	public Integer approveTicket(Users u, Reimbursement t) {
+		String sql = "update reimbursement set reimb_resolved = ?, reimb_resolver = ?, reimb_status = ? where reimb_id = ?";
 		Reimbursement ticket = new Reimbursement();
 		int rs = 0;
 		try (Connection c = UtilConnection.getConnectionFromEnv()){
@@ -237,6 +240,7 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 			ps.setTimestamp(1, timestamp);
 			ps.setString(2, u.getFirstName() + " " + u.getLastName());
 			ps.setString(3, "approved");
+			ps.setInt(4, t.getId());
 
 		 rs = ps.executeUpdate();
 			
@@ -248,13 +252,13 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 			e.getStackTrace();
 		}
 
-		return ticket;
+		return rs;
 	}
 
 
 	@Override
-	public Reimbursement rejectTicket(Users u, Reimbursement t) {
-		String sql = "update from reimbursement set reimb_resolved = ?, reimb_resolver = ?, reimb_status = ?";
+	public Integer rejectTicket(Users u, Reimbursement t) {
+		String sql = "update reimbursement set reimb_resolved = ?, reimb_resolver = ?, reimb_status = ? where reimb_id = ?";
 		Reimbursement ticket = new Reimbursement();
 		int rs = 0;
 		try (Connection c = UtilConnection.getConnectionFromEnv()){
@@ -263,6 +267,7 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 			ps.setTimestamp(1, timestamp);
 			ps.setString(2, u.getFirstName() + " " + u.getLastName());
 			ps.setString(3, "rejected");
+			ps.setInt(4, t.getId());
 
 			rs = ps.executeUpdate();
 			
@@ -274,7 +279,7 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 			e.getStackTrace();
 		}
 
-		return ticket;
+		return rs;
 	}
 
 	@Override

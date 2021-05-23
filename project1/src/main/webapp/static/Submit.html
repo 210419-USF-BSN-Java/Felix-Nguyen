@@ -51,7 +51,8 @@
 		<a class="nav-link" href="http://localhost:8080/project1/static/Submit.html">Submit a ticket</a>
 		<a class="nav-link" href="http://localhost:8080/project1/static/ViewInfo.html">View Info</a>
 		<a class="nav-link" href="http://localhost:8080/project1/static/UpdateInfo.html">Update Info</a>
-		<a class="nav-link" href="http://localhost:8080/project1/">Log Out</a>
+		<a class="nav-link" href="http://localhost:8080/project1/static/ViewRequests.html">View Your Tickets</a>
+		<a id = "logout" class="nav-link" href="http://localhost:8080/project1/">Log Out</a>
 		<br><br>
 	<!--<form action = "../Reimbursement" method = "POST">-->
 
@@ -86,6 +87,13 @@
 document.getElementById('amount').onchange = fixNum;
 
 document.getElementById('submit').onclick = setResponse;
+document.getElementById('logout').onclick = logout;
+
+
+function logout(){
+	localStorage.removeItem("token");
+	window.location.href = "http://localhost:8080/project1/static/index.html";	
+}
 
 function setResponse(){
 	let xhr = new XMLHttpRequest();

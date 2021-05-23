@@ -18,7 +18,7 @@ public interface ReimbursementDAO {
 	List<Reimbursement> viewResolvedEmpTickets();// manager
 	List<Reimbursement> viewOwnPendingTickets();// employee
 	List<Reimbursement> viewOwnResolvedTickets();// employee
-	Reimbursement approveTicket(Users u, Reimbursement t);
-	Reimbursement rejectTicket(Users u,Reimbursement t);
+	Integer approveTicket(Users u, Reimbursement t);
+	Integer rejectTicket(Users u,Reimbursement t);
 	
 }

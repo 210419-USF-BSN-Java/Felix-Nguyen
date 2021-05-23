@@ -31,14 +31,24 @@
 		<a class="nav-link" href="http://localhost:8080/project1/static/Submit.html">Submit a ticket</a>
 		<a class="nav-link" href="http://localhost:8080/project1/static/ViewInfo.html">View Info</a>
 		<a class="nav-link" href="http://localhost:8080/project1/static/UpdateInfo.html">Update Info</a>
-		<a class="nav-link" href="http://localhost:8080/project1/">Log Out</a>
+		<a class="nav-link" href="http://localhost:8080/project1/static/ViewRequests.html">View Your Tickets</a>
+		<a id = "logout"class="nav-link" href="http://localhost:8080/project1/">Log Out</a>
 <br><br><br>
 <section id = "data"></section>
 <script>
 let apiURL = 'http://localhost:8080/project1/Employee';
-document.addEventListener("load", getData());
 let token = localStorage.getItem("token");
 let parseToken = token.split(":");
+
+document.addEventListener("load", getData());
+document.getElementById('logout').onclick = logout;
+
+
+function logout(){
+	localStorage.removeItem("token");
+	window.location.href = "http://localhost:8080/project1/static/index.html";	
+}
+
 function getData(){    
   
     let xhr = new XMLHttpRequest();
@@ -101,8 +111,6 @@ function populateData(response){
    			 th[i].innerHTML = headers[i];
 		} 
 	  
-
-	 
 		for (a = 0; a < response.length; a++) {
 	  let body = [response[a].id, response[a].firstName, response[a].lastName, response[a].username, response[a].password, response[a].email, response[a].role];
 

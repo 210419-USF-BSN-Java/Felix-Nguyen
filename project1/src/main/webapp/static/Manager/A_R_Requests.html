@@ -13,28 +13,91 @@
 		  text-decoration: none;
 		  display: inline-block;
 	}
+	
+	table {
+  		border-collapse: collapse;
+	}
+
+	th{
+		width:500px;
+		border: 2px solid grey;
+	}
+
+	td{
+		text-align:center;
+	
+	}
+	
+	.label{
+		font-family:cursive;
+		font-size:medium;
+		
+	}
 </style>
 </head>
 	
 
 <body>
-<!--<h1>Lets Accept or Reject Requests!<h1>
-<a class="nav-link" href="../Manager/ManagerHome.html">Manager Home</a>
-<a class="nav-link" href="../Manager/A_R_Requests.html">Accept/Reject Requests</a>
-<a class="nav-link" href="../Manager/ViewAllEmp.html">View All Employees</a>
-<a class="nav-link" href="http://localhost:8080/project1/">Log Out</a>
-<a class="nav-link" href="http://localhost:8080/project1/">zzzzzzzzzzzzz</a> -->
 <h1>Lets Accept or Reject Requests!<h1>
 <a class="nav-link" href="http://localhost:8080/project1/static//Manager/ManagerHome.html">Manager Home</a>
 <a class="nav-link" href="http://localhost:8080/project1/static/Manager/A_R_Requests.html">Accept/Reject Requests</a>
 <a class="nav-link" href="http://localhost:8080/project1/static/Manager/ViewAllEmp.html">View All Employees</a>
-<a class="nav-link" href="http://localhost:8080/project1/">Log Out</a>
+<a id = "logout" class="nav-link" href="http://localhost:8080/project1/">Log Out</a>
+<br><br>
+
+<label for = "id" class = "label">Enter Request ID: </label>
+<input id = "id" type = "text">
+<select id = "select" name = "type" required>
+			<option name = "Select Option" value = "">Select Option</option>			
+			<option name = "Accept" value = "Accept">Accept</option>
+			<option name = "Reject"value = "Reject">Reject</option>
+</select>
+<input id = "submit" name = "id" type = "button" value = "Submit">
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<label for = "id" class = "label">Enter Emp Id to Filter: </label>
+<input id = "filter" type = "text">
+<input id = "filterbtn" name = "id" type = "button" value = "Submit">
+
+<br><br>
+<section id = "data"></section>
 </body>
+
 <script>
-
 let apiURL = 'http://localhost:8080/project1/Reimbursement';
-
 document.addEventListener("load", getData());
+document.getElementById('logout').onclick = logout;
+document.getElementById('submit').onclick = submitData;
+document.getElementById('filterbtn').onclick = getFilteredData;
+
+
+function submitData(){
+	let xhr = new XMLHttpRequest();
+	let url = "http://localhost:8080/project1/Manager";
+	xhr.open("GET", url);	
+	
+	let token = localStorage.getItem("token");
+	let id = document.getElementById('id').value;
+	let select = document.getElementById('select').value;
+	
+	console.log(token);
+		console.log(id);
+			console.log(select);
+
+	xhr.setRequestHeader("Authorization", token);
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.setRequestHeader("select", select);
+	xhr.setRequestHeader("id", id);
+	
+	let body = `id=${id}&select=${select}`;
+	console.log(body);
+	xhr.send(body);
+}
+
+
+function logout(){
+	localStorage.removeItem("token");
+	window.location.href = "http://localhost:8080/project1/static/index.html";	
+}
 
 function getData(){
     
@@ -63,7 +126,7 @@ function populateData(response){
     
    console.log(response);
    let dataSection = document.getElementById('data');
-
+    // Resets the innerHTML before loading new data
    dataSection.innerHTML ='';
 
    let nameTag = document.createElement('h5');
@@ -76,51 +139,148 @@ function populateData(response){
 	  let tbl = document.createElement('table');	 
 	  let thead = document.createElement('thead');
 	  let tr = document.createElement('tr')
-
-	  var th = [];
-	  
-for (i = 0; i < 10; i++) {
-    th[i] = document.createElement('th');
-} 
+	   var th = [];
+	  for (i = 0; i < 11; i++) {
+	    th[i] = document.createElement('th');
+	} 
 	  
 	  dataSection.appendChild(tbl);
 	  tbl.appendChild(thead);
-	  tbl.appendChild(thead);
 	  thead.appendChild(tr);
 	  
-	  for (i = 0; i < 10; i++) {
-    tr.appendChild(th[i]);
-} 
-
-	  
-
+	  for (i = 0; i < 11; i++) {
+  		  tr.appendChild(th[i]);
+	  } 
+			
 	
-	  let headers = ["ID", "Amount", "SubmitDate", "ResolvedDate", "Desc", "Receipt", "Author", "Resolver", "Status", "Type"];
-	    for (i = 0; i < 10; i++) {
-    th[i].innerHTML = headers[i];
-} 
+	  let headers = ["ID", "Amount", "SubmitDate", "ResolvedDate", "Desc", "Receipt", "Author", "AuthorId", "Resolver", "Status", "Type"];
+	    for (i = 0; i < 11; i++) {
+   			 th[i].innerHTML = headers[i];
+		} 
+	console.log(response[0].submitDate);
+	console.log(response[0].resolvedDate);
 	
-	  
+	for (a = 0; a < response.length; a++) {
+	let body = [response[a].id, response[a].amount, response[a].submitDate, response[a].resolvedDate,
+				 response[a].desc, response[a].receipt, response[a].author, response[a].authorId, response[a].resolver, response[a].status, response[a].type];
+	
 	   let tbody = document.createElement('tbody');
 	   tbl.appendChild(tbody);
-	   let tr1 = document.createElement('tr');
-	   tbody.appendChild(tr1);
-	   let td = [];
-	   let body = [response[0].id, response[0].amount, response[0].submitDate, response[0].resolvedDate, response[0].desc, response[0].receipt, response[0].author, response[0].resolver, response[0].status, response[0].type];
-	     for (i = 0; i < 10; i++) {
-   			 td[i] = document.createElement('td');
-   			 td[i].innerHTML = body[i];
-   			 tr1.appendChild(td[i]);
-	 	 } 
-	   
+	  
+	   let bodyrow = [];
+	  
+		bodyrow[i] = document.createElement('tr');
+		tbody.appendChild(bodyrow[i]);
+		
 
+	  	let td = [];
+	  
+		for (k = 0; k < 11; k++) {
+	   		td[k] = document.createElement('td');
+	   		td[k].innerHTML = body[k];	   		
+	   		bodyrow[i].appendChild(td[k]);
+		 } 
+	 	  
+	   
+	}
 
 }
 
 tableCreate();
 
-
-	   
 }
+function getFilteredData(){
+    
+    let xhr = new XMLHttpRequest();
+    //xhr.responseType = "text";
+    xhr.onreadystatechange = receiveData;
+    xhr.open('GET', apiURL);
+    xhr.send();
+
+    function receiveData(){
+        let dataSection = document.getElementById('data');
+
+        if(xhr.readyState === 4){
+            if(xhr.status >= 200 && xhr.status < 300){
+                let response = xhr.responseText;                	
+                response = JSON.parse(response);
+                populateFilteredData(response);
+            } else{
+                console.log("else");
+            }
+        }
+    }
+}
+function populateFilteredData(response){
+    
+   console.log(response);
+   let dataSection = document.getElementById('data');
+    // Resets the innerHTML before loading new data
+   dataSection.innerHTML ='';
+
+   let nameTag = document.createElement('h5');
+   console.log(response);
+   
+
+
+	function filteredTable() {
+
+	  let tbl = document.createElement('table');	 
+	  let thead = document.createElement('thead');
+	  let tr = document.createElement('tr')
+	   var th = [];
+	  for (i = 0; i < 11; i++) {
+	    th[i] = document.createElement('th');
+	} 
+	  
+	  dataSection.appendChild(tbl);
+	  tbl.appendChild(thead);
+	  thead.appendChild(tr);
+	  
+	  for (i = 0; i < 11; i++) {
+  		  tr.appendChild(th[i]);
+	  } 
+			
+	
+	  let headers = ["ID", "Amount", "SubmitDate", "ResolvedDate", "Desc", "Receipt", "Author", "AuthorId", "Resolver", "Status", "Type"];
+	    for (i = 0; i < 11; i++) {
+   			 th[i].innerHTML = headers[i];
+		} 
+	console.log(response[0].submitDate);
+	console.log(response[0].resolvedDate);
+	
+	for (a = 0; a < response.length; a++) {
+	let body = [response[a].id, response[a].amount, response[a].submitDate, response[a].resolvedDate,
+				 response[a].desc, response[a].receipt, response[a].author, response[a].authorId, response[a].resolver, response[a].status, response[a].type];
+	
+	   let tbody = document.createElement('tbody');
+	   tbl.appendChild(tbody);
+	  
+	   let bodyrow = [];
+	  
+		bodyrow[i] = document.createElement('tr');
+		tbody.appendChild(bodyrow[i]);
+		
+
+	  	let td = [];
+	  
+		for (k = 0; k < 11; k++) {
+			if(body[7] == document.getElementById('filter').value){
+				td[k] = document.createElement('td');
+	   			td[k].innerHTML = body[k];	   		
+	   			bodyrow[i].appendChild(td[k]);
+			}
+	   		
+		 } 
+	 	  
+	   
+	}
+
+}
+
+filteredTable();
+
+}
+
 </script>
 </html>

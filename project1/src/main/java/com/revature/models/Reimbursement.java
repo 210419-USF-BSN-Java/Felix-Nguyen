@@ -13,6 +13,7 @@ public class Reimbursement implements Serializable{
 	private String desc;
 	private String receipt;
 	private String author;
+	private int authorId;
 	private String resolver;
 	private String status;
 	private String type;
@@ -20,7 +21,7 @@ public class Reimbursement implements Serializable{
 
 
 	public Reimbursement(int id, double amount, String submitDate, String resolvedDate, String desc, String receipt,
-			String author, String resolver, String status, String type) {
+			String author, int authorId, String resolver, String status, String type) {
 		super();
 		this.id = id;
 		this.amount = amount;
@@ -29,6 +30,7 @@ public class Reimbursement implements Serializable{
 		this.desc = desc;
 		this.receipt = receipt;
 		this.author = author;
+		this.authorId = authorId;
 		this.resolver = resolver;
 		this.status = status;
 		this.type = type;
@@ -155,6 +157,12 @@ public class Reimbursement implements Serializable{
 	}
 
 
+	public int getAuthorId() {
+		return authorId;
+	}
+	public void setAuthorId(int authorId) {
+		this.authorId = authorId;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -163,6 +171,7 @@ public class Reimbursement implements Serializable{
 		temp = Double.doubleToLongBits(amount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
+		result = prime * result + authorId;
 		result = prime * result + ((desc == null) ? 0 : desc.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((receipt == null) ? 0 : receipt.hashCode());
@@ -188,6 +197,8 @@ public class Reimbursement implements Serializable{
 			if (other.author != null)
 				return false;
 		} else if (!author.equals(other.author))
+			return false;
+		if (authorId != other.authorId)
 			return false;
 		if (desc == null) {
 			if (other.desc != null)
@@ -231,9 +242,10 @@ public class Reimbursement implements Serializable{
 	@Override
 	public String toString() {
 		return "Reimbursement [id=" + id + ", amount=" + amount + ", submitDate=" + submitDate + ", resolvedDate="
-				+ resolvedDate + ", desc=" + desc + ", receipt=" + receipt + ", author=" + author + ", resolver="
-				+ resolver + ", status=" + status + ", type=" + type + "]";
+				+ resolvedDate + ", desc=" + desc + ", receipt=" + receipt + ", author=" + author + ", authorId="
+				+ authorId + ", resolver=" + resolver + ", status=" + status + ", type=" + type + "]";
 	}
+
 
 	
 	

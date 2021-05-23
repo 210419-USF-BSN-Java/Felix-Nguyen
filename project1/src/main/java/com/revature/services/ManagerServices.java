@@ -12,16 +12,13 @@ public class ManagerServices {
 	private UsersDAOImp uDAO = new UsersDAOImp();
 	private ReimbursementDAOImp  rDAO = new ReimbursementDAOImp();
 	
-	public void viewHome() {
-		
-	}
 	
-	public Reimbursement approveTicket(Users u, Reimbursement ticket) {
+	public Integer approveTicket(Users u, Reimbursement ticket) {
 		return rDAO.approveTicket(u, ticket);
 		
 	}
 	
-	public Reimbursement rejectTicket(Users u, Reimbursement ticket) {
+	public Integer rejectTicket(Users u, Reimbursement ticket) {
 		return rDAO.rejectTicket(u, ticket);
 	}
 	
