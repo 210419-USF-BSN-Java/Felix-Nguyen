@@ -22,19 +22,25 @@
 		text-align:center;
 	}
 
-	
+	section{
+		
+			background-color:blanchedalmond;
+			margin:auto;
+			padding:20px;
+			border-radius:20px;
+	}
+		
 </style>
 </head>
 	<meta charset="utf-8"/>
 
 <body id = "body">
-<h1>Viewing your requests!<h1>
 		<a class="nav-link" href="http://localhost:8080/project1/static/Employee.html">Home</a>
 		<a class="nav-link" href="http://localhost:8080/project1/static/Submit.html">Submit a ticket</a>
 		<a class="nav-link" href="http://localhost:8080/project1/static/ViewInfo.html">View Info</a>
 		<a class="nav-link" href="http://localhost:8080/project1/static/UpdateInfo.html">Update Info</a>
 		<a class="nav-link" href="http://localhost:8080/project1/static/ViewRequests.html">View Your Tickets</a>
-		<a id = "logout" class="nav-link" href="http://localhost:8080/project1/">Log Out</a>
+		<a id = "logout" class="nav-link" href="http://localhost:8080/project1/login">Log Out</a>
 <br><br><br>
 <section id = "data"></section>
 </body>
@@ -49,7 +55,8 @@ document.getElementById('logout').onclick = logout;
 
 function logout(){
 	localStorage.removeItem("token");
-	window.location.href = "http://localhost:8080/project1/static/index.html";	
+	//window.location.href = "http://localhost:8080/project1/static/index.html";	
+			window.location.href = "http://localhost:8080/project1/login";
 }
 
 function getData(){

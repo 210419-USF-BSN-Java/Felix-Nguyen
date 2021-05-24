@@ -7,12 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.models.Users;
 
 import util.UtilConnection;
 
 public class UsersDAOImp implements UsersDAO{
-
+	private static Logger l = Logger.getLogger(UsersDAOImp.class.getName());
 	@Override
 	public int add(Users u) {
 		String sql = "insert into ers_users (user_id, user_firstname, user_lastname, user_email, user_role) values (?,?,?,?,?)";
@@ -29,8 +31,8 @@ public class UsersDAOImp implements UsersDAO{
 			
 		}
 		catch (SQLException e) {
-			//logE("Error sending/receiving data to the database");
-			e.printStackTrace();
+			logE("Error sending/receiving data to the database");
+			//e.printStackTrace();
 		}
 		return result;
 	}
@@ -59,8 +61,8 @@ public class UsersDAOImp implements UsersDAO{
 
 		}
 		catch (SQLException e) {
-			//logE("Error sending/receiving data to the database");
-			e.getStackTrace();
+			logE("Error sending/receiving data to the database");
+			//e.getStackTrace();
 		}
 
 		return u;
@@ -88,9 +90,7 @@ public class UsersDAOImp implements UsersDAO{
 			}
 		}
 		catch (SQLException e) {
-			//logE("Error sending/receiving data to the database");
-
-			System.out.println(e.getSQLState());
+			logE("Error sending/receiving data to the database");
 		}
 
 		return uList;
@@ -113,8 +113,8 @@ public class UsersDAOImp implements UsersDAO{
 			
 		}
 		catch (SQLException e) {
-			//logE("Error sending/receiving data to the database");
-			e.printStackTrace();
+			logE("Error sending/receiving data to the database");
+			
 		}
 		return result;
 	}
@@ -142,19 +142,12 @@ public class UsersDAOImp implements UsersDAO{
 
 		}
 		catch (SQLException e) {
-			//logE("Error sending/receiving data to the database");
-			e.getStackTrace();
+			logE("Error sending/receiving data to the database");
+		
 		}
 
 		return user;
 	}
-
-	// no need already got getAllEmployees no need to get managers
-	@Override
-	public List<Users> getUsersByRole(String s) {
-		// TODO Auto-generated method stub
-		return null;
-	}	
 
 	@Override
 	public Users checkLogin(String username, String password) {
@@ -180,11 +173,20 @@ public class UsersDAOImp implements UsersDAO{
 
 		}
 		catch (SQLException e) {
-			//logE("Error sending/receiving data to the database");
-			e.getStackTrace();
+			logE("Error sending/receiving data to the database");
+		
 		}
 
 		return user;
+	}
+	public void logI(String s) { // outputs string 's' with new line
+		l.info(s);
+		l.info("                 ");
+	}
+	
+	public void logE(String s) { // outputs string 's' with new line
+		l.error(s);
+		l.error("                 ");
 	}
 
 }

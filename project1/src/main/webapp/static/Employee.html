@@ -11,22 +11,79 @@
 		  text-decoration: none;
 		  display: inline-block;
 	}
+	
+	html{
+		background:url(https://i.ibb.co/3yXKqd8/plant.jpg);
+		background-size:cover;
+	}
+	
+	.container span{
+		color:white;
+		text-transform:uppercase;
+		display:block;
+	}
+	
+	.container{
+		text-align: center;
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform: translate(-50%, -50%);
+		width:100%;
+	}
+	
+	.text1{
+		font-size:60px;
+		color:white;
+		font-weight:700;
+		letter-spacing:8px;
+		margin-bottom:20px;
+		background:black;
+		position:relative;
+		animation:text 3s 1;
+		
+	}
+	
+	#text2{
+		font-size:30px;
+		color:black;
+	}
+	
+	@keyframes text{
+		0%{
+			color:black;
+			margin-bottom:-40px;
+		}
+		
+		30%{
+			letter-spacing:25px;
+			margin-bottom:-40px;
+		}
+		85%{
+			letter-spacing:8x;
+			margin-bottom:-40px;
+		}
+		
+	}
+	
+	
+	
 </style>
 </head>
 	<meta charset="utf-8"/>
 
 <body>
-<h1>employees home page!<h1>
 		<a class="nav-link" href="http://localhost:8080/project1/static/Employee.html">Home</a>
 		<a class="nav-link" href="http://localhost:8080/project1/static/Submit.html">Submit a ticket</a>
 		<a class="nav-link" href="http://localhost:8080/project1/static/ViewInfo.html">View Info</a>
 		<a class="nav-link" href="http://localhost:8080/project1/static/UpdateInfo.html">Update Info</a>
 		<a class="nav-link" href="http://localhost:8080/project1/static/ViewRequests.html">View Your Tickets</a>
-		<a id = "logout" class="nav-link" href="http://localhost:8080/project1/">Log Out</a>
+		<a id = "logout" class="nav-link" href="http://localhost:8080/project1/login">Log Out</a>
 		
-		 <iframe width="420" height="315"
-				"https://www.youtube.com/watch?v=WY6C00vbzPw">
-		</iframe> 
+		<div class = "container">
+			<span class = "text1">Welcome</span>
+			<span id = "text2" class = "text2">Employees!</span>
+		</div>
 <script>
 document.getElementById('logout').onclick = logout;
 
@@ -34,6 +91,7 @@ document.getElementById('logout').onclick = logout;
 function logout(){
 	localStorage.removeItem("token");
 	window.location.href = "http://localhost:8080/project1/static/index.html";	
+			//window.location.href = "http://localhost:8080/project1/login";
 }
 </script>
 	

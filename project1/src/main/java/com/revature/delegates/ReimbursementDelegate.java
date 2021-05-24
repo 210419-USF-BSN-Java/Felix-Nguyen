@@ -2,13 +2,13 @@ package com.revature.delegates;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.daos.UsersDAOImp;
@@ -24,6 +24,7 @@ public class ReimbursementDelegate implements Delegatable{
 	private UsersDAOImp ui = new UsersDAOImp();
 	ObjectMapper om = new ObjectMapper();
 	AtomicInteger ai = new AtomicInteger();
+	private static Logger l = Logger.getLogger(ReimbursementDelegate.class.getName());
 	Users u = new Users();
 	@Override
 	public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -55,19 +56,19 @@ public class ReimbursementDelegate implements Delegatable{
 				System.out.println("Description: " + request.getParameter("description"));
 				System.out.println("Type: " + request.getParameter("type"));
 				try {
-				r.setId(ai.incrementAndGet());				
-				r.setAuthor(u.getFirstName() + " " + u.getLastName());
-				r.setAuthorId(u.getId());
-				r.setAmount(Double.parseDouble(request.getHeader("amount")));							
-				r.setDesc(request.getHeader("description"));
-				r.setStatus("submitted");
-				r.setType(request.getHeader("type"));			
-				es.addTicket(r);
+					r.setId(ai.incrementAndGet());				
+					r.setAuthor(u.getFirstName() + " " + u.getLastName());
+					r.setAuthorId(u.getId());
+					r.setAmount(Double.parseDouble(request.getHeader("amount")));							
+					r.setDesc(request.getHeader("description"));
+					r.setStatus("submitted");
+					r.setType(request.getHeader("type"));			
+					es.addTicket(r);
 				}
 				catch(Exception e) {
-					e.printStackTrace();
+					logE("Error in sending a ticket");
 				}
-				//response.setStatus(201);
+				
 
 			case "PUT":
 				//TODO
@@ -79,5 +80,14 @@ public class ReimbursementDelegate implements Delegatable{
 				response.sendError(400, "Method not supported.");
 			}
 		}
+	}
+	public void logI(String s) { // outputs string 's' with new line
+		l.info(s);
+		l.info("                 ");
+	}
+	
+	public void logE(String s) { // outputs string 's' with new line
+		l.error(s);
+		l.error("                 ");
 	}
 }

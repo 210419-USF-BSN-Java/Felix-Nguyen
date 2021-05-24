@@ -1,0 +1,4 @@
+{INFO} -  [com.revature.delegates.AuthenticateDelegate]   -     Login Failed | Username: null Password: null     May-23-21 Sunday PDT 19:34:53
+{INFO} -  [com.revature.delegates.AuthenticateDelegate]   -                           May-23-21 Sunday PDT 19:34:53
+{INFO} -  [com.revature.delegates.AuthenticateDelegate]   -     Login Successful | Username: felix Password: nguyen | Token: 1:employee     May-23-21 Sunday PDT 19:35:16
+{INFO} -  [com.revature.delegates.AuthenticateDelegate]   -                           May-23-21 Sunday PDT 19:35:16

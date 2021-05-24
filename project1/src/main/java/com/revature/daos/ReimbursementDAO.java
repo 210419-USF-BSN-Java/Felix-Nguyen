@@ -11,8 +11,6 @@ public interface ReimbursementDAO {
 	Integer remove(Reimbursement ticket);
 	List<Reimbursement> viewAllTickets();
 	Reimbursement getTicketById(int id);
-	String getStatusById(int id);
-	Integer getTicketsByType(String s);
 	List<Reimbursement> viewEmpTickets();
 	List<Reimbursement> viewPendingEmpTickets();// manager
 	List<Reimbursement> viewResolvedEmpTickets();// manager

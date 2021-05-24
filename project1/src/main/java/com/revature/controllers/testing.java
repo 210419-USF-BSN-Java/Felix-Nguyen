@@ -1,5 +1,7 @@
 package com.revature.controllers;
 
+
+
 import java.sql.SQLException;
 
 import com.revature.daos.ReimbursementDAOImp;
@@ -8,13 +10,13 @@ import com.revature.models.Reimbursement;
 import com.revature.models.Users;
 import com.revature.services.ManagerServices;
 
-public class presentation {
+public class testing {
 
-	public static void main(String[] args) throws SQLException {
-		ManagerServices ms = new ManagerServices();
-		ReimbursementDAOImp ri = new ReimbursementDAOImp();
-		UsersDAOImp ui = new UsersDAOImp();
-		Reimbursement r = new Reimbursement();
+//	public static void main(String[] args) throws SQLException {
+//		ManagerServices ms = new ManagerServices();
+//		ReimbursementDAOImp ri = new ReimbursementDAOImp();
+//		UsersDAOImp ui = new UsersDAOImp();
+//		Reimbursement r = new Reimbursement();
 //		udi.add(new Users(3, "firstname", "lastname", "username", "password","nguyenfelix79@yahoo.com", "emp"));
 //		UtilConnection u = new UtilConnection();
 //		
@@ -31,9 +33,9 @@ public class presentation {
 //		u = ui.getUserById(2);
 //		System.out.println(u.toString());
 //		System.out.println(ri.approveTicket(u, r));
-		
-		System.out.println(ms.viewAllTickets().toString());
-		
+//		
+//		System.out.println(ms.viewAllTickets().toString());
+//		
 //		Iterator it = r.viewAllTickets().iterator();
 //		
 //		while(it.hasNext()) {
@@ -61,8 +63,9 @@ public class presentation {
 //		r.setStatus("pending");
 //		r.setType("food");
 //		ri.add(r);
-		
-		
-	}
+//		
+//		
+//	}
 
 }
+

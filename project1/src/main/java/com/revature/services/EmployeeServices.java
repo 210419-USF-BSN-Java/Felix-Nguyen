@@ -19,12 +19,8 @@ public class EmployeeServices {
 		return rDAO.add(r);		
 	}
 	
-	public Reimbursement uploadReceipt() {
-		//TODO:
-		return null;
-	}
 	
-	public List<Reimbursement> viewPendingTickets(Users u) {
+	public List<Reimbursement> viewPendingTickets() {
 		return rDAO.viewPendingEmpTickets();
 	}
 	
@@ -32,8 +28,8 @@ public class EmployeeServices {
 		return rDAO.viewResolvedEmpTickets();
 	}
 	
-	public void viewInfo(Users u) {
-		uDAO.getUserById(u.getId());
+	public Users viewInfo(Users u) {
+		return uDAO.getUserById(u.getId());
 	}
 	
 	public Users updateInfo(Users u) {
@@ -41,8 +37,4 @@ public class EmployeeServices {
 		return u;
 	}
 	
-	public Users sendEmail(Users u) {
-		//TODO:
-		return null;
-	}
 }

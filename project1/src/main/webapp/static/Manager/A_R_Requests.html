@@ -18,14 +18,12 @@
   		border-collapse: collapse;
 	}
 
-	th{
+
+	
+	th, td{
 		width:500px;
 		border: 2px solid grey;
-	}
-
-	td{
 		text-align:center;
-	
 	}
 	
 	.label{
@@ -33,17 +31,26 @@
 		font-size:medium;
 		
 	}
+	section{
+		
+			background-color:blanchedalmond;
+			margin:auto;
+			padding:20px;
+			border-radius:20px;
+	}
+	
+	
 </style>
 </head>
 	
 
 <body>
-<h1>Lets Accept or Reject Requests!<h1>
+
 <a class="nav-link" href="http://localhost:8080/project1/static//Manager/ManagerHome.html">Manager Home</a>
 <a class="nav-link" href="http://localhost:8080/project1/static/Manager/A_R_Requests.html">Accept/Reject Requests</a>
 <a class="nav-link" href="http://localhost:8080/project1/static/Manager/ViewAllEmp.html">View All Employees</a>
 <a id = "logout" class="nav-link" href="http://localhost:8080/project1/">Log Out</a>
-<br><br>
+<br><br><br><br><br>
 
 <label for = "id" class = "label">Enter Request ID: </label>
 <input id = "id" type = "text">
@@ -58,7 +65,19 @@
 <input id = "filter" type = "text">
 <input id = "filterbtn" name = "id" type = "button" value = "Submit">
 
-<br><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<label for = "id" class = "label">Enter Request Type: </label>
+<select id = "select-type" name = "type" required>
+			<option name = "Select Option" value = "">Select Option</option>			
+			<option name = "Submitted" value = "submitted">Submitted</option>
+			<option name = "Approved" value = "approved">Approved</option>
+			<option name = "Rejected" value = "rejected">Rejected</option>
+<input id = "status-btn" name = "id" type = "button" value = "Submit">
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<label for = "id" class = "label">Reset Table: </label>
+<input id = "reset" name = "id" type = "button" value = "Reset">
+
+<br><br><br><br><br>
 <section id = "data"></section>
 </body>
 
@@ -68,6 +87,8 @@ document.addEventListener("load", getData());
 document.getElementById('logout').onclick = logout;
 document.getElementById('submit').onclick = submitData;
 document.getElementById('filterbtn').onclick = getFilteredData;
+document.getElementById('status-btn').onclick = getStatusData;
+document.getElementById('reset').onclick = getData;
 
 
 function submitData(){
@@ -281,6 +302,101 @@ function populateFilteredData(response){
 filteredTable();
 
 }
+function getStatusData(){
+    
+    let xhr = new XMLHttpRequest();
+    //xhr.responseType = "text";
+    xhr.onreadystatechange = receiveData;
+    xhr.open('GET', apiURL);
+    xhr.send();
+
+    function receiveData(){
+        let dataSection = document.getElementById('data');
+
+        if(xhr.readyState === 4){
+            if(xhr.status >= 200 && xhr.status < 300){
+                let response = xhr.responseText;                	
+                response = JSON.parse(response);
+                populateStatusData(response);
+            } else{
+                console.log("else");
+            }
+        }
+    }
+}
+
+function populateStatusData(response){
+    
+   console.log(response);
+   let dataSection = document.getElementById('data');
+    // Resets the innerHTML before loading new data
+   dataSection.innerHTML ='';
+
+   let nameTag = document.createElement('h5');
+   console.log(response);
+   
+
+
+	function tableStatusCreate() {
+
+	  let tbl = document.createElement('table');	 
+	  let thead = document.createElement('thead');
+	  let tr = document.createElement('tr')
+	   var th = [];
+	  for (i = 0; i < 11; i++) {
+	    th[i] = document.createElement('th');
+	} 
+	  
+	  dataSection.appendChild(tbl);
+	  tbl.appendChild(thead);
+	  thead.appendChild(tr);
+	  
+	  for (i = 0; i < 11; i++) {
+  		  tr.appendChild(th[i]);
+	  } 
+			
+	
+	  let headers = ["ID", "Amount", "SubmitDate", "ResolvedDate", "Desc", "Receipt", "Author", "AuthorId", "Resolver", "Status", "Type"];
+	    for (i = 0; i < 11; i++) {
+   			 th[i].innerHTML = headers[i];
+		} 
+	console.log(response[0].submitDate);
+	console.log(response[0].resolvedDate);
+	
+	for (a = 0; a < response.length; a++) {
+	let body = [response[a].id, response[a].amount, response[a].submitDate, response[a].resolvedDate,
+				 response[a].desc, response[a].receipt, response[a].author, response[a].authorId, response[a].resolver, response[a].status, response[a].type];
+	
+	   let tbody = document.createElement('tbody');
+	   tbl.appendChild(tbody);
+	  
+	   let bodyrow = [];
+	  
+		bodyrow[i] = document.createElement('tr');
+		tbody.appendChild(bodyrow[i]);
+		
+
+	  	let td = [];
+	  
+		for (k = 0; k < 11; k++) {
+			if(body[9] == document.getElementById('select-type').value){
+				td[k] = document.createElement('td');
+		   		td[k].innerHTML = body[k];	   		
+		   		bodyrow[i].appendChild(td[k]);
+			}
+	   		
+		 } 
+	 	  
+	   
+	}
+
+}
+
+tableStatusCreate();
+
+}
+
+
 
 </script>
 </html>

@@ -6,6 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.revature.daos.ReimbursementDAOImp;
 import com.revature.daos.UsersDAOImp;
 import com.revature.models.Reimbursement;
@@ -17,7 +19,7 @@ public class ManagerDelegate implements Delegatable{
 	private ManagerServices ms = new ManagerServices();
 	private UsersDAOImp ui = new UsersDAOImp();
 	private ReimbursementDAOImp ri = new ReimbursementDAOImp();
-	
+	private static Logger l = Logger.getLogger(ManagerDelegate.class.getName());
 	@Override
 	public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 	
@@ -70,5 +72,14 @@ public class ManagerDelegate implements Delegatable{
 				response.sendError(400, "Method not supported.");
 			}
 		}
+	public void logI(String s) { // outputs string 's' with new line
+		l.info(s);
+		l.info("                 ");
+	}
+	
+	public void logE(String s) { // outputs string 's' with new line
+		l.error(s);
+		l.error("                 ");
+	}
 	}
 

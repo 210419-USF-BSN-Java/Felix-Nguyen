@@ -4,13 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Timestamp;
-import java.sql.Date;
 
+import org.apache.log4j.Logger;
+
+import com.revature.delegates.AuthenticateDelegate;
 import com.revature.models.Reimbursement;
 import com.revature.models.Users;
 
@@ -19,7 +19,7 @@ import util.UtilConnection;
 public class ReimbursementDAOImp implements ReimbursementDAO{
 
 	Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-	
+	private static Logger l = Logger.getLogger(ReimbursementDAOImp.class.getName());
 	@Override
 	public Integer add(Reimbursement ticket) {
 
@@ -28,8 +28,7 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 				int rs = 0;
 				try (Connection c = UtilConnection.getConnectionFromEnv()){
 					
-					PreparedStatement ps = c.prepareStatement(sql);	
-					
+					PreparedStatement ps = c.prepareStatement(sql);					
 					ps.setInt(1, ticket.getId());
 					ps.setDouble(2, ticket.getAmount());
 					ps.setTimestamp(3, timestamp);
@@ -41,13 +40,13 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 					ps.setString(9, ticket.getResolver());
 					ps.setString(10, ticket.getStatus());
 					ps.setString(11, ticket.getType());
-//		
+		
 					rs = ps.executeUpdate();
-		System.out.println("Time: " + timestamp);
+					System.out.println("Time: " + timestamp);
 				}
 				catch (SQLException e) {
-					//logE("Error sending/receiving data to the database");
-					e.printStackTrace();
+					logE("Error sending/receiving data to the database");
+				
 				}
 		
 				return rs;
@@ -69,8 +68,8 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 			
 					}
 					catch (SQLException e) {
-						//logE("Error sending/receiving data to the database");
-						e.getStackTrace();
+						logE("Error sending/receiving data to the database");
+						//e.getStackTrace();
 					}
 			
 					return rs;	}
@@ -101,8 +100,8 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 			
 		}
 		catch (SQLException e) {
-			//logE("Error sending/receiving data to the database");
-			e.getStackTrace();
+			logE("Error sending/receiving data to the database");
+			//e.getStackTrace();
 		}
 
 		return rsList;
@@ -177,8 +176,8 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 
 		}
 		catch (SQLException e) {
-			//logE("Error sending/receiving data to the database");
-			e.getStackTrace();
+			logE("Error sending/receiving data to the database");
+			//e.getStackTrace();
 		}
 
 		return rsList;
@@ -210,23 +209,11 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 
 		}
 		catch (SQLException e) {
-			//logE("Error sending/receiving data to the database");
-			e.getStackTrace();
+			logE("Error sending/receiving data to the database");
+			//e.getStackTrace();
 		}
 
 		return ticket;
-	}
-
-	@Override
-	public String getStatusById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Integer getTicketsByType(String s) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -248,8 +235,8 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 
 		
 		catch (SQLException e) {
-			//logE("Error sending/receiving data to the database");
-			e.getStackTrace();
+			logE("Error sending/receiving data to the database");
+			//e.getStackTrace();
 		}
 
 		return rs;
@@ -275,8 +262,8 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 
 		
 		catch (SQLException e) {
-			//logE("Error sending/receiving data to the database");
-			e.getStackTrace();
+			logE("Error sending/receiving data to the database");
+			
 		}
 
 		return rs;
@@ -292,6 +279,16 @@ public class ReimbursementDAOImp implements ReimbursementDAO{
 	public List<Reimbursement> viewOwnResolvedTickets() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public void logI(String s) { // outputs string 's' with new line
+		l.info(s);
+		l.info("                 ");
+	}
+	
+	public void logE(String s) { // outputs string 's' with new line
+		l.error(s);
+		l.error("                 ");
 	}
 
 }

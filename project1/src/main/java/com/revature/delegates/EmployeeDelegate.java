@@ -7,6 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.daos.UsersDAOImp;
 import com.revature.models.Users;
@@ -14,10 +16,12 @@ import com.revature.services.EmployeeServices;
 import com.revature.services.ManagerServices;
 
 public class EmployeeDelegate implements Delegatable{
+	
 	private EmployeeServices es = new EmployeeServices();
 	private ManagerServices ms = new ManagerServices();
 	private ObjectMapper om = new ObjectMapper();
 	private UsersDAOImp ui = new UsersDAOImp();
+	private static Logger l = Logger.getLogger(EmployeeDelegate.class.getName());
 	
 	@Override
 	public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -65,7 +69,17 @@ public class EmployeeDelegate implements Delegatable{
 				break;
 			default:
 				response.sendError(400, "Method not supported.");
+				logE("Path in Employee delegate not supported");
 			}
 		}
+	}
+	public void logI(String s) { // outputs string 's' with new line
+		l.info(s);
+		l.info("                 ");
+	}
+	
+	public void logE(String s) { // outputs string 's' with new line
+		l.error(s);
+		l.error("                 ");
 	}
 }
