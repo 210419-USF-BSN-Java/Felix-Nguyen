@@ -160,27 +160,27 @@ To log in as a manager use the following credentials:
 
 On successful login, the manager will be directed to the manager home page.
 
-![here](./p1-images/manager-home.jpg)
+![here](./p1-images/Manager-Home.JPG)
 
 We can review employee requests by clicking on ***Accept/Reject Requests***. We can also see that our recent ticket was just added at the bottom.
 
-![here](./p1-images/ar-1.JPG)
+![here](./p1-images/AR-1.JPG)
 
 To approve or reject the request, enter a reimbursement ID on the first column and choose from the drop down.  Click on submit to finalize.  Clicking on reset allows to view the changes.
 
-![here](./p1-images/ar-2.JPG)
+![here](./p1-images/AR-2.JPG)
 
-![here](./p1-images/ar-3.JPG)
+![here](./p1-images/AR-3.JPG)
 
 Additionally we can filter employee requests by ***ID*** by entering in form and clicking submit.
-![here](./p1-images/ar-4.jpg)
+![here](./p1-images/AR-4.JPG)
 
 Furthermore we can filter employee requests by ***status*** such as submitted, approved, and rejected.
-![here](./p1-images/ar-5.jpg)
+![here](./p1-images/AR-5.JPG)
 
 Lastly, a manager can view all employees which also includes all managers.
 
-![here](./p1-images/ViewEmp.jpg)
+![here](./p1-images/ViewEmp.JPG)
 ## License
 
 This project uses the following license: [MIT License](https://choosealicense.com/licenses/mit/).
