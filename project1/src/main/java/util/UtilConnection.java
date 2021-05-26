@@ -18,12 +18,12 @@ public class UtilConnection {
 			e.printStackTrace();
 		}
 //		For public debugging:		
-//		String RDS_HOSTNAME = "db1.cwx0nihectol.us-west-1.rds.amazonaws.com";
-//		String RDS_USERNAME = "postgres";
-//	    String RDS_PASS = "nguyenfelix79";
-		String RDS_HOSTNAME = System.getenv("RDS_HOSTNAME");
-		String RDS_USERNAME = System.getenv("RDS_USERNAME");
-		String RDS_PASS = System.getenv("RDS_PASS");
+		String RDS_HOSTNAME = "db1.cwx0nihectol.us-west-1.rds.amazonaws.com";
+		String RDS_USERNAME = "postgres";
+	    String RDS_PASS = "nguyenfelix79";
+//		String RDS_HOSTNAME = System.getenv("RDS_HOSTNAME");
+//		String RDS_USERNAME = System.getenv("RDS_USERNAME");
+//		String RDS_PASS = System.getenv("RDS_PASS");
 
 		
 		String jdbcURL = "jdbc:postgresql://" + RDS_HOSTNAME + ":" + 5432 + "/" + RDS_USERNAME +"?user=" + RDS_USERNAME + "&password=" + RDS_PASS;
