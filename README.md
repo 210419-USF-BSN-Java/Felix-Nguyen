@@ -164,13 +164,13 @@ On successful login, the manager will be directed to the manager home page.
 
 We can review employee requests by clicking on ***Accept/Reject Requests***. We can also see that our recent ticket was just added at the bottom.
 
-![here](./p1-images/ar-1.jpg)
+![here](./p1-images/ar-1.JPG)
 
 To approve or reject the request, enter a reimbursement ID on the first column and choose from the drop down.  Click on submit to finalize.  Clicking on reset allows to view the changes.
 
-![here](./p1-images/ar-2.jpg)
+![here](./p1-images/ar-2.JPG)
 
-![here](./p1-images/ar-3.jpg)
+![here](./p1-images/ar-3.JPG)
 
 Additionally we can filter employee requests by ***ID*** by entering in form and clicking submit.
 ![here](./p1-images/ar-4.jpg)
