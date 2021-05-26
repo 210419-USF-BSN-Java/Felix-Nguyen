@@ -68,7 +68,7 @@ To-do list:
    
    5. Inside Git Bash, enter ***git clone*** plus your link and hit enter.  The repository will then be visible within your local folder.
   
-      ![here](./p1-images/GitBash-Command.jpg)  
+      ![here](./p1-images/GitBash-Command.JPG)  
 
    6. Open Eclipse or Spring Tool Suite 
    7. Select File - > Import - > Maven - > Existing Maven Projects.  
@@ -128,7 +128,7 @@ The credentials for an employee are
 
 Upon logging in the employee will be directed to the home page.
 
-![here](./p1-images/Emp-Home.jpg)
+![here](./p1-images/Emp-Home.JPG)
 
 The employee may select ***View Your Tickets*** to check any pending or reviewed requests updated by a manager.  Currently this employee has one ticket that was rejected.
 
