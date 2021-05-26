@@ -55,14 +55,13 @@ To-do list:
    3. Right click inside the folder and select ***Git Bash Here***
    4. Copy the this for ***HTTPS***: https://github.com/210419-USF-BSN-Java/Felix-Nguyen.git
    		Other links:
-   		   SSH: git@github.com:210419-USF-BSN-Java/Felix-Nguyen.git
-   		GitHub CLI:  gh repo clone 210419-USF-BSN-Java/Felix-Nguyen
+   		SSH - git@github.com:210419-USF-BSN-Java/Felix-Nguyen.git
+   		GitHub CLI -  gh repo clone 210419-USF-BSN-Java/Felix-Nguyen
    5. Inside Git Bash, enter ***git clone***
+   	<img src ="https://ibb.co/DzWpj4D">
 
-
-
-![Scoop instructions](./p1-images/GitBash-Folder)
-
+- All the `code` required to get started
+- Images of what it should look like
 
 ## Usage
 
@@ -72,25 +71,4 @@ To-do list:
 
 ## License
 
-This project uses the following license: [MIT License](https://choosealicense.com/licenses/mit/).
-MIT License
-
-Copyright (c) [2021] [Felix-Tai Vi Nguyen]
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+This project uses the following license: [<license_name>](<link>).
