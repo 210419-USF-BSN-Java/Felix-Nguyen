@@ -132,23 +132,23 @@ Upon logging in the employee will be directed to the home page.
 
 The employee may select ***View Your Tickets*** to check any pending or reviewed requests updated by a manager.  Currently this employee has one ticket that was rejected.
 
-![here](./p1-images/View-ticket1.jpg)
+![here](./p1-images/View-ticket1.JPG)
 
 We can submit a ticket through ***Submit a ticket*** 
 
-![here](./p1-images/Submit.jpg)
+![here](./p1-images/Submit.JPG)
 
 After sending a ticket, we can view our recently created ticket by checking ***View Your Tickets*** again.
 
-![here](./p1-images/View-ticket2.jpg)
+![here](./p1-images/View-ticket2.JPG)
 
 Additionally an employee may view their info through ***View Info***
 
-![here](./p1-images/View-Info.jpg)
+![here](./p1-images/View-Info.JPG)
 
 Or update their information by clicking ***Update Info***
 
-![here](./p1-images/Update-Info.jpg)
+![here](./p1-images/Update-Info.JPG)
 
 Selecting ***Log Out*** will return the employee back to the login page.
 
@@ -168,15 +168,17 @@ We can review employee requests by clicking on ***Accept/Reject Requests***. We 
 
 To approve or reject the request, enter a reimbursement ID on the first column and choose from the drop down.  Click on submit to finalize.  Clicking on reset allows to view the changes.
 
-![here](./p1-images/AR-2.JPG)
+![here](./p1-images/AR-2.jpg)
 
-![here](./p1-images/AR-3.JPG)
+![here](./p1-images/AR-3.jpg)
 
 Additionally we can filter employee requests by ***ID*** by entering in form and clicking submit.
-![here](./p1-images/AR-4.JPG)
+
+![here](./p1-images/AR-4.jpg)
 
 Furthermore we can filter employee requests by ***status*** such as submitted, approved, and rejected.
-![here](./p1-images/AR-5.JPG)
+
+![here](./p1-images/AR-5.jpg)
 
 Lastly, a manager can view all employees which also includes all managers.
 
