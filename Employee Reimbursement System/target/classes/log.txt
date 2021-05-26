@@ -148,3 +148,29 @@
 {ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -                           May-24-21 Monday PDT 14:48:18
 {ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -     Error in sending a ticket     May-24-21 Monday PDT 14:48:23
 {ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -                           May-24-21 Monday PDT 14:48:23
+{INFO} -  [com.revature.delegates.AuthenticateDelegate]   -     Login Failed | Username: null Password: null     May-25-21 Tuesday PDT 23:09:10
+{INFO} -  [com.revature.delegates.AuthenticateDelegate]   -                           May-25-21 Tuesday PDT 23:09:10
+{INFO} -  [com.revature.delegates.AuthenticateDelegate]   -     Login Successful | Username: felix Password: nguyen | Token: 1:employee     May-25-21 Tuesday PDT 23:10:27
+{INFO} -  [com.revature.delegates.AuthenticateDelegate]   -                           May-25-21 Tuesday PDT 23:10:27
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -     Error in sending a ticket     May-25-21 Tuesday PDT 23:13:54
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -                           May-25-21 Tuesday PDT 23:13:54
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -     Error in sending a ticket     May-25-21 Tuesday PDT 23:18:31
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -                           May-25-21 Tuesday PDT 23:18:31
+{INFO} -  [com.revature.delegates.AuthenticateDelegate]   -     Login Failed | Username: null Password: null     May-25-21 Tuesday PDT 23:27:29
+{INFO} -  [com.revature.delegates.AuthenticateDelegate]   -                           May-25-21 Tuesday PDT 23:27:29
+{INFO} -  [com.revature.delegates.AuthenticateDelegate]   -     Login Successful | Username: ldadd3 Password: NrSLHxr0VDQ | Token: 4:manager     May-25-21 Tuesday PDT 23:27:33
+{INFO} -  [com.revature.delegates.AuthenticateDelegate]   -                           May-25-21 Tuesday PDT 23:27:33
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -     Error in sending a ticket     May-25-21 Tuesday PDT 23:28:04
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -                           May-25-21 Tuesday PDT 23:28:04
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -     Error in sending a ticket     May-25-21 Tuesday PDT 23:31:50
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -                           May-25-21 Tuesday PDT 23:31:50
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -     Error in sending a ticket     May-25-21 Tuesday PDT 23:32:49
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -                           May-25-21 Tuesday PDT 23:32:49
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -     Error in sending a ticket     May-25-21 Tuesday PDT 23:32:51
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -                           May-25-21 Tuesday PDT 23:32:51
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -     Error in sending a ticket     May-25-21 Tuesday PDT 23:32:56
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -                           May-25-21 Tuesday PDT 23:32:56
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -     Error in sending a ticket     May-25-21 Tuesday PDT 23:33:50
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -                           May-25-21 Tuesday PDT 23:33:50
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -     Error in sending a ticket     May-25-21 Tuesday PDT 23:34:59
+{ERROR} -  [com.revature.delegates.ReimbursementDelegate]   -                           May-25-21 Tuesday PDT 23:34:59
